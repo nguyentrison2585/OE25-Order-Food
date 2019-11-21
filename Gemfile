@@ -5,6 +5,7 @@ ruby "2.6.3"
 
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap-kaminari-views"
+gem "config"
 gem "figaro"
 gem "i18n-js"
 gem "jbuilder", "~> 2.7"

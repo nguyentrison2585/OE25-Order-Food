@@ -1,0 +1,93 @@
+<footer class="main-footer">
+  <div class="container">
+    <div class="container-inner">
+      <div class="block-footer">
+        <p class="title-block"><%= t "company" %></p>
+        <ul class="menu-footer">
+          <li class="menu-item">
+            <%= link_to t("about"), about_path %>
+          </li>
+          <li class="menu-item">
+            <%= link_to t("term"), term_path %>
+          </li>
+          <li class="menu-item">
+            <%= link_to t("term_of_user"), "#" %>
+          </li>
+          <li class="menu-item">
+            <%= link_to t("security"), security_path %>
+          </li>
+          <li class="menu-item">
+            <%= link_to t("contact"), contact_path %>
+          </li>
+        </ul>
+      </div>
+      <div class="block-footer">
+        <p class="title-block"><%= t "sun_app" %></p>
+        <%= link_to "#", target: "_blank", rel: "noopener noreferrer nofollow",
+          title: t("down_ios") do %>
+          <span class="apps app-ios" title=<%= t("down_ios") %>>
+            <i class="fab fa-apple"></i>
+            iOS
+          </span>
+        <% end %>
+        <%= link_to "#", target: "_blank", rel: "noopener noreferrer nofollow",
+          title: t("down_android") do %>
+          <span class="apps app-android" title=<%= t("down_android") %>>
+            <i class="fab fa-android"></i>
+            Android
+          </span>
+        <% end %>
+      </div>
+      <div class="block-footer txt-center">
+        <div class="logo-footer">
+          <%= link_to image_tag("logo_1.png", alt:"logo_now",
+          class: "cover"), "#" %>
+        </div>
+        <p class="font12"><%= t "copy_right" %></p>
+        <ul class="social-ico">
+          <li>
+            <%= link_to Settings.facebook, target: "_blank",
+              rel: "noopener noreferrer nofollow", title: "Facebook" do %>
+              <span class="facebook ico">
+                <i class="fab fa-facebook-f"></i>
+              </span>
+            <% end %>
+          </li>
+          <li>
+            <span class="google ico">
+              <i class="fab fa-google-plus-g"></i>
+            </span>
+          </li>
+          <li>
+            <%= link_to Settings.instagram, target: "_blank",
+              rel: "noopener noreferrer nofollow", title: "Instagram" do %>
+              <span class="instagram ico">
+                <i class="fab fa-instagram">
+                </i>
+              </span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="block-last">
+        <p class="title-block"><%= t "company_address" %></p>
+        <span>
+          <p><%= t "company_name" %></p>
+          <p><%= t "com_addr_first_line" %></p>
+          <p><%= t "com_addr_second_line" %></p>
+          <p><%= t "certificate_first_line" %></p>
+          <p><%= t "certificate_second_line" %></p>
+          <p><%= t "certificate_third_line" %></p>
+          <p><%= t "telephone" %></p>
+          <p><%= t "email" %></p>
+        </span>
+        <span class="registered">
+          <%= link_to image_tag("gov.png", alt: t("registered"),
+            title: t("registered"),
+            rel: "noopener noreferrer nofollow", target: "_blank") ,
+            Settings.gov%>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
