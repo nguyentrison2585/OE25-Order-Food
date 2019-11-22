@@ -3,4 +3,5 @@ class Dish < ApplicationRecord
   has_many :combo_details, dependent: :destroy
   has_many :combos, through: :combo_details, dependent: :destroy
   has_many :order_details, as: :order_detailable, dependent: :destroy
+  validates :name, :description, :price, presence: true
 end

@@ -3,10 +3,10 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     create_table :users do |t|
       t.string :email
       t.string :password
-      t.integer :role
+      t.integer :role, default: 2
       t.string :name
-      t.string :phone_number
       t.string :image
+      t.string :phone_number
 
       t.timestamps
     end
