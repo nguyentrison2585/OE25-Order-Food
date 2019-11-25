@@ -1,0 +1,28 @@
+<header class="main-header">
+  <div class="container-header">
+    <div class="container">
+      <div class="header-content navbar row justify-content-between
+        align-items-center">
+        <div class="logo-now col-auto">
+          <span>
+            <%= link_to image_tag("logo.png", alt:"rails_logo",
+            class: "cover"), "#" %>
+          </span>
+        </div>
+        <div class="main-nav col">
+          <a class="nav-item active" href="#"><%= t "restaurant" %></a>
+        </div>
+        <div class="user-acc col-auto">
+          <button type="button" class="btn btn-none-bg btn-login">
+            <%= t "sign_up" %>
+          </button>
+        </div>
+        <div class="user-acc col-auto">
+          <button type="button" class="btn btn-none-bg btn-login">
+            <%= t "log_in" %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,24 @@
+<div class="item-restaurant">
+  <%= link_to "#", class: "item-content", target: "_blank" do %>
+    <div class="img-restaurant">
+      <%= image_tag("restaurant-#{num}.jpg", class: "") %>
+    </div>
+    <div class="info-restaurant">
+      <div class="info-basic-res">
+        <h4 class="name-res" title=<%= t "restaurant_name" %>>
+          <%= t "restaurant_name" %>
+        </h4>
+        <div class="address-res" title=<%= t "restaurant_address" %>>
+          <%= t "restaurant_address" %>
+        </div>
+      </div>
+      <p class="content-promotion">
+        <i class="fas fa-tag"></i>
+        <%= t "sale_all" %>
+      </p>
+      <div class="opentime-status">
+        <span class="stt online" title=<%= t "open" %>></span>
+      </div>
+    </div>
+  <% end %>
+</div>
