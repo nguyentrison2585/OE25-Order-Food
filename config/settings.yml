@@ -5,3 +5,4 @@ max_name: 50
 max_email: 255
 min_password: 6
 valid_email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
+res_per_page: 15

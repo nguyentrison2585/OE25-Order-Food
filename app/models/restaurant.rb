@@ -7,4 +7,6 @@ class Restaurant < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true
   validates :open_time, presence: true
+  has_many :dishes, dependent: :destroy
+  has_one_attached :res_image
 end

@@ -1,15 +1,15 @@
 <div class="item-restaurant">
-  <%= link_to "#", class: "item-content", target: "_blank" do %>
+  <%= link_to restaurant, class: "item-content", target: "_blank" do %>
     <div class="img-restaurant">
-      <%= image_tag("restaurant-#{num}.jpg", class: "") %>
+      <%= image_tag restaurant.res_image, class: "" %>
     </div>
     <div class="info-restaurant">
       <div class="info-basic-res">
-        <h4 class="name-res" title=<%= t "restaurant_name" %>>
-          <%= t "restaurant_name" %>
+        <h4 class="name-res" title=<%= restaurant.name %>>
+          <%= restaurant.name%>
         </h4>
-        <div class="address-res" title=<%= t "restaurant_address" %>>
-          <%= t "restaurant_address" %>
+        <div class="address-res" title=<%= restaurant.address %>>
+          <%= restaurant.address %>
         </div>
       </div>
       <p class="content-promotion">

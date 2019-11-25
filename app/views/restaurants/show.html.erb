@@ -1,0 +1,173 @@
+<div class="now-detail-restaurant clearfix">
+  <div class="container">
+    <div class="detail-restaurant-img">
+      <%= image_tag @restaurant.res_image, alt: t("restaurant_name"),
+         class: "" %>
+    </div>
+    <div class="detail-restaurant-info">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <%= link_to t("home"), root_url, class: "breadcrumb-link",
+              rel: "nofollow" %>
+          </li>
+          <li class="breadcrumb-item">
+            <%= link_to @restaurant.name, @restaurant,
+              class: "breadcrumb-link", rel: "nofollow" %>
+          </li>
+        </ol>
+      </nav>
+      <div class="kind-restaurant"><%= t "restaurant_kind" %></div>
+      <div class="name-restaurant"><%= t "restaurant_name" %></div>
+      <div class="address-restaurant"><%= t "restaurant_address" %></div>
+      <div class="rating">
+        <div class="stars">
+          <span class="full"><i class="fas fa-star"></i></span>
+          <span class="full"><i class="fas fa-star"></i></span>
+          <span class="full"><i class="fas fa-star"></i></span>
+          <span class="full"><i class="fas fa-star"></i></span>
+          <span class="half"><i class="fas fa-star-half-alt"></i></span>
+        </div>
+        <span class="number-rating"><%= t "number_rates" %></span>
+        <%= t "rate_from" %>
+      </div>
+      <div class="status-restaurant">
+        <div class="opentime-status">
+          <span class="stt offline" title="<%= t "restaurant_status"%>"></span>
+        </div>
+      </div>
+      <div class="cost-restaurant">
+        <i class="fas fa-dollar-sign"></i><%= t "price_range" %>
+      </div>
+      <div class="share-social clearfix">
+        <div class="share-social-box">
+          <div class="fb-like" data-layout="button" data-action="like"
+            data-size="small" data-show-faces="false" data-share="true"
+            data-colorscheme="light" data-kid-directed-site="false"></div>
+        </div>
+      </div>
+      <div class="utility-restaurant clearfix">
+        <div class="utility-item">
+          <div class="utility-title"><%= t "service_fee" %></div>
+          <div class="utility-content">
+            <span class="txt-bold txt-red"><%= t "no_fee" %></span>
+          </div>
+          <span class="icon icon-verify-merchant" data-toggle="modal"
+            data-target="#modal-verify-merchant"></span>
+        </div>
+        <div class="utility-item">
+          <div class="utility-title"><%= t "service_by" %></div>
+          <div class="utility-content">
+            <span class="txt-bold txt-red"><%= t "sun" %></span>
+          </div>
+        </div>
+        <div class="utility-item">
+          <div class="utility-title"><%= t "prepare" %></div>
+          <div class="utility-content"><%= t "prepare_time" %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container relative clearfix">
+  <div class="now-menu-restaurant">
+    <div class="menu-restaurant-tab">
+      <div class="item active"><%= t "menu" %></div>
+    </div>
+    <div class="menu-restaurant-content-tab">
+      <div class="menu-restaurant-container">
+        <div class="menu-restaurant-detail">
+          <div class="promotions-order">
+            <div class="promotion-item">
+              <%= image_tag "promo-code.png", class: "icon-promotion" %>
+              <div class="content"><%= t "sale_promotion" %></div>
+            </div>
+            <div class="promotion-item group-order-campaign">
+              <%= image_tag "freeship.png", class: "icon-promotion" %>
+              <div class="content"><%= t "freeship" %></div>
+            </div>
+          </div>
+          <div class="menu-restaurant-list">
+            <div class="search-items">
+              <p class="input-group">
+                <i class="fas fa-search"></i>
+                <input type="search" name="searchKey"
+                  placeholder="<%= t "search_dish" %>" value="">
+              </p>
+            </div>
+            <div id="restaurant-item">
+              <div aria-label="grid" aria-readonly="true"
+                class="food_list"
+                role="grid" tabindex="0">
+                <div class="food_list_container"
+                  role="rowgroup">
+                  <ul>
+                    <%= render partial: "item", collection: @dishes,
+                      as: :dish %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="now-bill-restaurant">
+      <div class="bill-restaurant-header">
+        <button disabled="" class="cart-stats">
+          <span class="txt-bold"><%= t "zero" %></span>
+          <%= t "item" %>
+        </button>
+        <button class="btn-reset">
+          <%= t "reset" %>
+        </button>
+        <div class="create-order">
+          <%= t "order_by" %>
+          <span class="txt-blue">
+            <%= t "custom_name" %>
+          </span>
+        </div>
+      </div>
+      <div class="now-order-card-group"></div>
+      <div class="row-bill-restaurant">
+        <div class="row">
+          <div class="col">
+            <%= t "sub_total" %>
+          </div>
+          <div class="col-auto">
+            <span class="txt-bold">
+              <%= t "zero" %>
+              <span class="amount">
+                <%= t "dong" %>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row-bill-restaurant txt-center input-promocode">
+        <%= t "input_discount" %>
+      </div>
+      <div class="row-bill-restaurant relative">
+        <div class="row">
+          <div class="col">
+            <%= t "total" %>
+          </div>
+          <div class="col-auto">
+            <span class="txt-bold txt-blue font16">
+              <%= t "zero" %>
+              <span class="amount">
+                <%= t "dong" %>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-red">
+        <i class="fas fa-check-circle"></i>
+        <%= t "order_now" %>
+      </button>
+    </div>
+  </div>
+</div>

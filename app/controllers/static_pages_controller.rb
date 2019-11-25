@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
-  def home; end
+  def home
+    @restaurants = Restaurant.page(params[:page]).per Settings.res_per_page
+  end
 
   def about; end
 

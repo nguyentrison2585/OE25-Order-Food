@@ -20,11 +20,12 @@ en:
   certificate_second_line: "do Sở Kế hoạch và Đầu tư Hà Nội cấp ngày 1/1/2020,"
   certificate_third_line: "sửa đổi lần thứ 1, ngày 31/12/2019"
   telephone: "Số điện thoại: 19001000"
-  email: "Email: linhjava98@gmail.com"
-  restaurant_name: "Quạc Kí - Bún & Miến Ngan"
+  our_email: "Email: linhjava98@gmail.com"
+  restaurant_name: "Pizza Mập - Pizza Online"
   restaurant_address: "150 Lạc Nghiệp, Quận Hai Bà Trưng, Hà Nội"
   sale_all: "Giảm hết 20%"
-  search_holder: "Find restaurant"
+  search_res: "Find restaurant"
+  search_dish: "Find dish"
   registered: "Đã Đăng Ký Bộ Công Thương"
   open: "Open"
   down_ios: "Down app iOS"
@@ -32,6 +33,7 @@ en:
   linh_son_food: Linh Son Food
   log_in: Log in
   name: name
+  name: Name
   email: Email
   password: Password
   password_confirmation: Password Confirmation
@@ -48,3 +50,34 @@ en:
   fail_sign_up: Sign up is not successful
   order_history: Order History
   update_account: Update Account
+  restaurant_kind: "Shop online"
+  number_rates: "100+"
+  rate_from: "rates from Linh Son Food"
+  restaurant_status: "Closed"
+  price_range: "70,000 - 130,000"
+  service_fee: "Service fee"
+  no_fee: "0% Service fee"
+  service_by: "Service by"
+  sun: "Sun"
+  prepare: "Prepare"
+  prepare_time: "10 minutes"
+  menu: "Menu"
+  sale_promotion: "15% off on all menu items.
+    Enter voucher code to enjoy more discount"
+  freeship: 'Freeship within 5km: Enter code "FREESHIP"'
+  item: "item"
+  reset: "Reset"
+  order_by: "Order created by"
+  custom_name: "Nguyen Tri Son"
+  sub_total: "Sub total"
+  total: "Total"
+  zero: "0"
+  food_name: "Pizza Bò Hầm Đặc Biệt"
+  ordered: "Ordered"
+  num_orders: " 100+ "
+  times: "times"
+  old_price: "115,000"
+  new_price: "97,750"
+  dong: "đ"
+  input_discout: "Input discount code in complete step"
+  order_now: "Order now"
