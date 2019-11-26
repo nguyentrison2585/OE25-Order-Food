@@ -30,3 +30,17 @@ en:
   open: "Open"
   down_ios: "Down app iOS"
   down_android: "Down app Android"
+  linh_son_food: Linh Son Food
+  sign_up: Sign up
+  log_in: Log in
+  name: name
+  email: Email
+  password: Password
+  password_confirmation: Password Confirmation
+  phone_number: Phone number
+  create_my_account: Create my account
+  no_exist: Account doesn't exist
+  new_user: New user????
+  sign_up_now: Sign up now
+  invalid_combination : Invalid email/password combination
+  sign_up_successful: Sign up successfully

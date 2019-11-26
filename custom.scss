@@ -1,6 +1,4 @@
 @import 'color.scss';
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
 
 body {
     margin: 0;
@@ -387,13 +385,8 @@ a {
 }
 
 .opentime-status .online {
-  background-color: $green-dark;
+  background-color: $green-light;
   color: $green-dark;
-}
-
-.opentime-status .offline {
-  background-color: $light;
-  color: $light;
 }
 
 .opentime-status .stt {
@@ -1580,6 +1573,8 @@ address, dl, ol, ul {
   text-align: center!important;
 }
 
+
+/* forms */
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -1587,7 +1582,7 @@ input, textarea, select, .uneditable-input {
 }
 
 input {
-  height: auto !important;
+height: auto !important;
 }
 
 #error_explanation {
@@ -1599,10 +1594,11 @@ input {
   }
 .field_with_errors {
   .form-control {
-    color: $state-danger;
+    color: $state-danger-text;
   }
 }
 
+/* sidebar */
 aside {
   section.user_info {
     margin-top: 20px;

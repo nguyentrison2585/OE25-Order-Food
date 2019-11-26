@@ -6,5 +6,9 @@ Rails.application.routes.draw do
     get "/contact", to: "static_pages#contact"
     get "/term", to: "static_pages#term"
     get "/security", to: "static_pages#security"
+    get "/signup", to: "users#new"
+    get "sessions/new"
+
+    resources :users
   end
 end
