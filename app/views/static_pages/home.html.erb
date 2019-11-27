@@ -1,23 +1,24 @@
-<div class="form-search">
-  <div class="input-group">
-    <input type="text" id="txtSearchHome"
-      placeholder=<%= t "search_holder" %> value="">
-    <%= link_to "#" do %>
-      <button type="button" class="btn btn-search">
-        <i class="fas fa-search icon icon-search"></i>
-      </button>
-    <% end %>
-  </div>
-</div>
-<div class="now-list-restaurant deal-tab">
-  <div class="list-restaurant clearfix">
-    <div class="now-loading-restaurant">
-      <% 15.times do |n|%>
-        <%= render "box_loading" %>
+<div class="container">
+  <div class="form-search">
+    <div class="input-group">
+      <input type="text" id="txtSearchHome"
+        placeholder="<%= t "search_res" %>" value="">
+      <%= link_to "#" do %>
+        <button type="button" class="btn btn-search">
+          <i class="fas fa-search icon icon-search"></i>
+        </button>
       <% end %>
     </div>
-    <% 15.times do |n|%>
-      <%= render partial: "restaurant",  locals: {num: n+1} %>
-    <% end %>
+  </div>
+  <div class="now-list-restaurant deal-tab">
+    <div class="list-restaurant clearfix">
+      <div class="now-loading-restaurant">
+        <% @restaurants.each do %>
+          <%= render "box_loading" %>
+        <% end %>
+      </div>
+      <%= render partial: "restaurant",  collection: @restaurants %>
+      <center><%= paginate @restaurants %></center>
+    </div>
   </div>
 </div>

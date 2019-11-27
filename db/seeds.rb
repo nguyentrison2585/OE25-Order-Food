@@ -1,57 +1,45 @@
-User.delete_all
-Restaurant.delete_all
-Combo.delete_all
-ComboDetail.delete_all
-Dish.delete_all
-#user
-10.times do |n|
-  name = Faker::Name.name
-  email = "example@-#{n+1}railstutorial.org"
-  password = "password"
-  phone_number = "0329984400"
-  role = 2
-  User.create!(id: n + 1,
-               name: name,
-               email: email,
-               password: password,
-               role: role,
-               phone_number: phone_number,)
-end
-
-
-#restaurant
 5.times do |n|
-  name = Faker::Name.name
-  phone_number = "0329984-#{n+1}00"
-  address = "Ha Noi"
-  open_time = "8.00am - 9.00pm"
-  Restaurant.create!(id: n + 1,
-               name: name,
-               phone_number: phone_number,
-               address: address,
-               open_time: open_time,
-               user_id: n + 1)
+  email = "sonnt#{n+1}@gmail.com"
+  User.create!(
+    email: email,
+    password: "password",
+    password_confirmation: "password",
+    role: 2,
+    name: "Nguyễn Trí Sơn",
+    phone_number: "0123456789")
 end
 
+15.times do |n|
+  restaurant = Restaurant.create!(
+    name: "Pizza Mập - Pizza Online",
+    phone_number: "0123456789",
+    address: "150 Lạc Nghiệp, Quận Hai Bà Trưng, Hà Nội",
+    open_time: "8:00 - 22:00",
+    discount: 15,
+    user_id: rand(5)+1)
 
-5. times do |n|
-  name = Faker::Name.name
-  description = "that is all my delicious dish"
-  price = "200000"
-  Restaurant.find(1).dishes.create!(id: n + 1,
-                                    name: name,
-                                    description: description,
-                                    price: price)
+  restaurant.res_image.attach(io: File.open(Rails.root
+    .join("app", "assets", "images", "restaurant-#{n+1}.jpg")),
+    filename: "restaurant-#{n+1}.jpg")
 end
 
+restaurants = Restaurant.order(:created_at)
+Restaurant.all.each do |r|
+  5.times do |n|
+    dish = r.dishes.create!(
+        name: "Pizza bò hầm đặc biệt",
+        description: "Ngon",
+        price: 1000000
+      )
+    dish.dish_image.attach(io: File.open(Rails.root
+      .join("app", "assets", "images", "food-#{n+1}.jpg")),
+      filename: "food-#{n+1}.jpg")
+  end
+end
 
 5.times do |n|
   name = Faker::Name.name
   description = "combo is ready"
   Restaurant.find(1).combos.create!(name: name,
-                                    description: description,)
-end
-
-3.times do |n|
-  Restaurant.find(1).combos[0].combo_details.create(dish_id: n + 3)
+                                    description: description)
 end

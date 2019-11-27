@@ -1,0 +1,41 @@
+<li>
+  <div class="item-restaurant-row">
+    <div class="row">
+      <div class="col-auto item-restaurant-img">
+        <button class="inline">
+          <%= image_tag dish.dish_image %>
+        </button>
+      </div>
+      <div class="col item-restaurant-info">
+        <div class="item-restaurant-name"><%= dish.name %></div>
+        <div class="item-restaurant-desc"><%= dish.description %></div>
+        <div class="item-restaurant-total">
+          <%= t "ordered" %>
+          <span class="txt-bold"><%= t "num_orders" %></span>
+          <%= t "times" %>
+        </div>
+      </div>
+      <div class="col-auto item-restaurant-more">
+        <div class="row ">
+          <div class="col-auto product-price">
+            <div class="old-price">
+              <%= dish.price %>
+              <span class= "food_price">
+                <%= t "dong" %>
+              </span>
+            </div>
+            <div class="current-price">
+              <%= dish.price*(100-@restaurant.discount)/100 %>
+              <span class= "food_price">
+                <%= t "dong" %>
+              </span>
+            </div>
+          </div>
+          <div class="col-auto adding-food-cart txt-right">
+            <div class="btn-adding">+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
