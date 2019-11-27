@@ -1,0 +1,10 @@
+<%= form_tag restaurants_path, method: :get do %>
+  <div class="form-search">
+    <div class="input-group">
+      <%= text_field_tag :search_key, "", placeholder: t("search_res") %>
+      <%= button_tag nil, class: "btn btn-search", type: "submit" do %>
+        <i class="fas fa-search icon icon-search"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<div class="container">
+  <%= render "shared/search_form" %>
+  <% if @restaurants.present? %>
+    <div class="now-list-restaurant deal-tab">
+      <div class="list-restaurant clearfix">
+        <div class="now-loading-restaurant">
+          <%= render "box_loading", collection: @restaurants %>
+        </div>
+        <%= render @restaurants %>
+        <center><%= paginate @restaurants %></center>
+      </div>
+    </div>
+  <% end %>
+</div>
