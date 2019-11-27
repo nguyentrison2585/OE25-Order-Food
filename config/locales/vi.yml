@@ -31,8 +31,6 @@ vi:
   down_ios: "Tải ứng dụng iOS"
   down_android: "Tải ứng dụng Android"
   linh_son_food: Thực phẩm Linh Sơn
-  sign_up: Đăng ký
-  log_in: Đăng nhập
   name: Họ và tên
   email: Email
   password: Mật khẩu
@@ -44,3 +42,8 @@ vi:
   sign_up_now: Đăng ký ngay
   invalid_combination: Mật khẩu hoặc email không hợp lệ
   sign_up_successful: Đăng ký thành công
+  new_user : Tạo tài khoản mới!!!!
+  sign_up_now: Đăng ký ngay
+  invalid_combination: Mật khẩu hoặc email không hợp lệ
+  fail_sign_up: Đăng ký không thành công
+  order_history: Lịch sử đơn hàng

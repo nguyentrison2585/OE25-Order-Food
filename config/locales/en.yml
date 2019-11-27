@@ -5,7 +5,6 @@ en:
   contact: "Contact"
   restaurant: "Restaurant"
   sign_up: "Sign up"
-  log_in: "Log in"
   company: "Company"
   company_address: "Company_address"
   term: "Term"
@@ -31,7 +30,6 @@ en:
   down_ios: "Down app iOS"
   down_android: "Down app Android"
   linh_son_food: Linh Son Food
-  sign_up: Sign up
   log_in: Log in
   name: name
   email: Email
@@ -44,3 +42,9 @@ en:
   sign_up_now: Sign up now
   invalid_combination : Invalid email/password combination
   sign_up_successful: Sign up successfully
+  new_user: New user????
+  sign_up_now: Sign up now
+  invalid_combination : Invalid email/password combination
+  fail_sign_up: Sign up is not successful
+  order_history: Order History
+  update_account: Update Account

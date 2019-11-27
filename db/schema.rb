@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_023402) do
+ActiveRecord::Schema.define(version: 2019_11_26_023504) do
 
   create_table "combo_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "dish_id", null: false
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2019_11_26_023402) do
 
   create_table "combos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
-    t.string "image"
     t.string "description"
     t.bigint "restaurant_id", null: false
     t.datetime "created_at", precision: 6, null: false

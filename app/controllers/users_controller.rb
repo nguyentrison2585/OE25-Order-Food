@@ -8,15 +8,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      flash[:success]= t "sign_up_successfull"
+      log_in @user
+      flash.now[:success] = t "sign_up_successful"
       redirect_to @user
     else
+      flash.now[:warning] = t "fail_sign_up"
       render :new
     end
   end
 
-  def show
-  end
+  def show; end
 
   private
 
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
   def load_user
     @user = User.find_by id: params[:id]
     return if @user
+
     flash[:danger] = t "no_exist"
     redirect_to root_url
   end
