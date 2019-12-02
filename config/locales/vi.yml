@@ -79,3 +79,4 @@ vi:
   dong: "đ"
   input_discount: "Nhập mã khuyến mãi ở bước hoàn tất"
   order_now: "Đặt ngay"
+  no_valid_restaurant: "Không tìm thấy nhà hàng nào phù hợp"

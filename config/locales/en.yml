@@ -81,3 +81,4 @@ en:
   dong: "đ"
   input_discout: "Input discount code in complete step"
   order_now: "Order now"
+  no_valid_restaurant: "Don't have any valid restaurant"

@@ -11,7 +11,7 @@ end
 
 15.times do |n|
   restaurant = Restaurant.create!(
-    name: "Pizza Mập - Pizza Online",
+    name: "Pizza Mập - Pizza Online #{n+1}",
     phone_number: "0123456789",
     address: "150 Lạc Nghiệp, Quận Hai Bà Trưng, Hà Nội",
     open_time: "8:00 - 22:00",
