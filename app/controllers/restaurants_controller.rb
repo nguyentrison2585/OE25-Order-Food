@@ -2,8 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :load_restaurant, only: :show
 
   def index
-    @restaurants = params[:search_key] ? Restaurant.search(params[:search_key])
-      : Restaurant
+    @restaurants = params[:search_key].blank? ? Restaurant : Restaurant.search(params[:search_key])
     @restaurants = @restaurants.page(params[:page]).per Settings.res_per_page
   end
 
