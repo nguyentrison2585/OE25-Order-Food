@@ -118,10 +118,10 @@
     <div class="now-bill-restaurant">
       <div class="bill-restaurant-header">
         <button disabled="" class="cart-stats">
-          <span class="txt-bold"><%= t "zero" %></span>
+          <span class="txt-bold" id="total-order-number"><%= t "zero" %></span>
           <%= t "item" %>
         </button>
-        <button class="btn-reset">
+        <button class="btn-reset" id="btn-reset">
           <%= t "reset" %>
         </button>
         <div class="create-order">
@@ -131,7 +131,7 @@
           </span>
         </div>
       </div>
-      <div class="now-order-card-group"></div>
+      <div class="now-order-card-group" id="now-order-card-group"></div>
       <div class="row-bill-restaurant">
         <div class="row">
           <div class="col">
@@ -139,7 +139,7 @@
           </div>
           <div class="col-auto">
             <span class="txt-bold">
-              <%= t "zero" %>
+              <span class="total-amount"><%= t "zero" %></span>
               <span class="amount">
                 <%= t "dong" %>
               </span>
@@ -157,7 +157,7 @@
           </div>
           <div class="col-auto">
             <span class="txt-bold txt-blue font16">
-              <%= t "zero" %>
+              <span class="total-amount"><%= t "zero" %></span>
               <span class="amount">
                 <%= t "dong" %>
               </span>

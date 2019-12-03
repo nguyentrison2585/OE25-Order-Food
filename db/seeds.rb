@@ -27,7 +27,7 @@ restaurants = Restaurant.order(:created_at)
 Restaurant.all.each do |r|
   5.times do |n|
     dish = r.dishes.create!(
-        name: "Pizza bò hầm đặc biệt",
+        name: "Pizza bò hầm đặc biệt #{n+1}",
         description: "Ngon",
         price: 1000000
       )
