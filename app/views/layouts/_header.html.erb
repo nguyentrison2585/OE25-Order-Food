@@ -6,7 +6,7 @@
         <div class="logo-now col-auto">
           <span>
             <%= link_to image_tag("logo.png", alt:"rails_logo",
-            class: "cover"), "#" %>
+            class: "cover"), root_url %>
           </span>
         </div>
         <div class="main-nav col">
@@ -15,7 +15,7 @@
         <div class="user-acc col-auto">
           <button type="button" class="btn btn-none-bg btn-login">
             <% if logged_in? %>
-              <li class="dropdown">
+              <div class="dropdown">
                 <%= link_to( "#", class: "dropdown-toggle",
                   data:{toggle: "dropdown"}) do %>
                   <%= current_user.name %>
@@ -23,13 +23,12 @@
                 <% end %>
                 <ul class="dropdown-menu">
                   <li><%= link_to t("order_history"), "#" %></li>
-                  <li><%= link_to t("update_account"), current_user %></li>
-                  <li class="divider"></li>
+                  <li><%= link_to t("update_account"), "#" %></li>
                   <li>
-                    <%= link_to t("logout"), logout_path, method: :delete %>
+                    <%= link_to t("log_out"), logout_path, method: :delete %>
                   </li>
                 </ul>
-              </li>
+              </div>
             <% else %>
               <%= link_to t("log_in"), login_path %>
             <% end %>

@@ -82,3 +82,16 @@ en:
   input_discout: "Input discount code in complete step"
   order_now: "Order now"
   no_valid_restaurant: "Don't have any valid restaurant"
+  log_out: Log out
+  order_confirmation: Order Confirmation
+  order_detail: Order Detail
+  total: "Total:"
+  set: Set
+  transport_fee: "Transport fee:"
+  distance: "0.1 km"
+  cash: Cash
+  change: Change
+  order: Order
+  not_export_vat: Don't export VAT bill
+  example_place: "Ví dụ: Tòa nhà HTP - 434 Trần Khát Chân, cho thêm 2 ly nhựa..."
+  address: "Address:"

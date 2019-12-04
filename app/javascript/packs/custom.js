@@ -336,4 +336,34 @@ $(document).ready(function() {
       decreaseTotalNumber();
     }
   }
+
+  $("#button_order").click(function(e){
+    $('.order-list').children().remove();
+    var ordersLength= $('.order-card-item').length;
+    if (ordersLength==0)
+    {
+      e.stopPropagation();
+      return;
+    }
+    for(var i=0; i<ordersLength;i++){
+      var number_order = $('.number-order')[i].textContent;
+      var name_order = $('.name-order')[i].textContent;
+      var price_order = $('.price-order')[i].textContent;
+      var render = "<div class='order-item'><span class='order-item-number'>";
+      render += number_order;
+      render += "</span><div class='order-item-info'><div class='order-item-name'><span class='txt-bold'>";
+      render += name_order;
+      render += "&nbsp;</span></div><div class='order-item-note'></div></div><div class='order-item-price'><span style='font-weight: 400;position: relative;top: -9px;font-size: 10px;right: 0;'>";
+      render += price_order;
+      render += "</span></div></div>";
+      render += ""
+      $('.order-list').append(render);
+    }
+
+    render1 = totalAmounts[0].textContent;
+    $('#total_amount').text(render1);
+
+    render2 = totalOrderNumber[0].textContent;
+    $('#number_set'). text(render2);
+  });
 });

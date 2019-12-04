@@ -3,18 +3,18 @@
   <div class="container">
     <div class="detail-restaurant-img">
       <%= image_tag @restaurant.res_image, alt: t("restaurant_name"),
-         class: "" %>
+      class: "" %>
     </div>
     <div class="detail-restaurant-info">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <%= link_to t("home"), root_url, class: "breadcrumb-link",
-              rel: "nofollow" %>
+            rel: "nofollow" %>
           </li>
           <li class="breadcrumb-item">
             <%= link_to @restaurant.name, @restaurant,
-              class: "breadcrumb-link", rel: "nofollow" %>
+            class: "breadcrumb-link", rel: "nofollow" %>
           </li>
         </ol>
       </nav>
@@ -43,8 +43,8 @@
       <div class="share-social clearfix">
         <div class="share-social-box">
           <div class="fb-like" data-layout="button" data-action="like"
-            data-size="small" data-show-faces="false" data-share="true"
-            data-colorscheme="light" data-kid-directed-site="false"></div>
+          data-size="small" data-show-faces="false" data-share="true"
+          data-colorscheme="light" data-kid-directed-site="false"></div>
         </div>
       </div>
       <div class="utility-restaurant clearfix">
@@ -54,7 +54,7 @@
             <span class="txt-bold txt-red"><%= t "no_fee" %></span>
           </div>
           <span class="icon icon-verify-merchant" data-toggle="modal"
-            data-target="#modal-verify-merchant"></span>
+          data-target="#modal-verify-merchant"></span>
         </div>
         <div class="utility-item">
           <div class="utility-title"><%= t "service_by" %></div>
@@ -93,82 +93,172 @@
               <p class="input-group">
                 <i class="fas fa-search"></i>
                 <input type="search" name="searchKey"
-                  placeholder="<%= t "search_dish" %>" value="">
+                placeholder="<%= t "search_dish" %>" value="">
               </p>
             </div>
             <div id="restaurant-item">
               <div aria-label="grid" aria-readonly="true"
-                class="food_list"
-                role="grid" tabindex="0">
-                <div class="food_list_container"
-                  role="rowgroup">
-                  <ul>
-                    <%= render partial: "item", collection: @dishes,
-                      as: :dish %>
-                  </ul>
-                </div>
-              </div>
+              class="food_list"
+              role="grid" tabindex="0">
+              <div class="food_list_container"
+              role="rowgroup">
+              <ul>
+                <%= render partial: "item", collection: @dishes,
+                as: :dish %>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div>
-    <div class="now-bill-restaurant">
-      <div class="bill-restaurant-header">
-        <button disabled="" class="cart-stats">
-          <span class="txt-bold" id="total-order-number"><%= t "zero" %></span>
-          <%= t "item" %>
-        </button>
-        <button class="btn-reset" id="btn-reset">
-          <%= t "reset" %>
-        </button>
-        <div class="create-order">
-          <%= t "order_by" %>
-          <span class="txt-blue">
-            <%= t "custom_name" %>
+</div>
+<div>
+  <div class="now-bill-restaurant">
+    <div class="bill-restaurant-header">
+      <button disabled="" class="cart-stats">
+        <span class="txt-bold" id="total-order-number"><%= t "zero" %></span>
+        <%= t "item" %>
+      </button>
+      <button class="btn-reset" id="btn-reset">
+        <%= t "reset" %>
+      </button>
+      <div class="create-order">
+        <%= t "order_by" %>
+        <span class="txt-blue">
+          <%= t "custom_name" %>
+        </span>
+      </div>
+    </div>
+    <div class="now-order-card-group" id="now-order-card-group"></div>
+    <div class="row-bill-restaurant">
+      <div class="row">
+        <div class="col">
+          <%= t "sub_total" %>
+        </div>
+        <div class="col-auto">
+          <span class="txt-bold">
+            <span class="total-amount"><%= t "zero" %></span>
+            <span class="amount">
+              <%= t "dong" %>
+            </span>
           </span>
         </div>
       </div>
-      <div class="now-order-card-group" id="now-order-card-group"></div>
-      <div class="row-bill-restaurant">
-        <div class="row">
-          <div class="col">
-            <%= t "sub_total" %>
-          </div>
-          <div class="col-auto">
-            <span class="txt-bold">
-              <span class="total-amount"><%= t "zero" %></span>
-              <span class="amount">
-                <%= t "dong" %>
-              </span>
+    </div>
+    <div class="row-bill-restaurant txt-center input-promocode">
+      <%= t "input_discount" %>
+    </div>
+    <div class="row-bill-restaurant relative">
+      <div class="row">
+        <div class="col">
+          <%= t "total" %>
+        </div>
+        <div class="col-auto">
+          <span class="txt-bold txt-blue font16">
+            <span class="total-amount"><%= t "zero" %></span>
+            <span class="amount">
+              <%= t "dong" %>
             </span>
-          </div>
+          </span>
         </div>
       </div>
-      <div class="row-bill-restaurant txt-center input-promocode">
-        <%= t "input_discount" %>
+    </div>
+    <button class="btn btn-red" id = "button_order"
+    data-toggle="modal" data-target="#modal-order"
+    data-backdrop="static" data-keyboard="false">
+      <i class="fas fa-check-circle "></i>
+      <%= t "order_now" %>
+    </button>
+  </div>
+</div>
+<div class="modal" id="modal-order">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-order-detail">
+      <span class ="close" data-dismiss="modal">
+        <%= image_tag "delete.svg", alt:"delete" %>
+      </span>
+      <div class="modal-header">
+        <%= t "order_confirmation" %>
       </div>
-      <div class="row-bill-restaurant relative">
-        <div class="row">
-          <div class="col">
-            <%= t "total" %>
+      <div class="modal-body">
+        <div class="order-right">
+          <p class="title-popup-order">
+            <%= t "order_detail" %>
+            <i class="icon-arrow-thin right" aria-hidden="true"></i>
+          </p>
+          <div class="order-list">
           </div>
           <div class="col-auto">
             <span class="txt-bold txt-blue font16">
-              <span class="total-amount"><%= t "zero" %></span>
-              <span class="amount">
-                <%= t "dong" %>
+              <span class="total-amount">
               </span>
+              <span class="amount"></span>
             </span>
+          </div>
+          <div class="info-order">
+            <div class="row">
+              <div class="col"><%= t "total" %>
+                <span class="txt-bold" id = "number_set">
+                </span> <%= t "set" %>
+              </div>
+              <div class="col-auto txt-bold" >
+                <span id ="total_amount"></span>
+                <span class="money_unit">
+                  <%= t "dong" %>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-auto">
+                <span class="money_unit">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="note-order "></div>
+          <div class="padding-10 txt-bold font16">
+            <div class="row">
+              <div class="col-auto">
+                <span class="money_unit">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="payment-methods">
+            <div class="row">
+              <div class="col">
+                <span class="txt-bold font16 txt-black"><%= t "cash" %></span>
+              </div>
+              <div class="col-auto">
+                <i class="icon-arrow-thin right" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div class="order-note">
+            <label for="address"><%= t "address" %></label>
+            <textarea placeholder="<%= t "example_place" %>" name="note"></textarea>
+          </div>
+          <div class="not-vat">
+            <span class="icon icon-vatnot">
+              <%= image_tag "VAT.jpg", alt:"vat" %>
+            </span>
+            <span class="txt-gray"><%= t "not_export_vat" %></span>
           </div>
         </div>
       </div>
-      <button class="btn btn-red">
-        <i class="fas fa-check-circle"></i>
-        <%= t "order_now" %>
-      </button>
+      <div class="modal-footer">
+        <div class="submit-order">
+          <%= t "order" %>
+          <i class="fas fa-arrow-right"></i>
+          <span class="total-price">
+            <div>
+              <span class="money_unit">
+              </span>
+            </div>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

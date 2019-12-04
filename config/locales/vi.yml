@@ -80,3 +80,17 @@ vi:
   input_discount: "Nhập mã khuyến mãi ở bước hoàn tất"
   order_now: "Đặt ngay"
   no_valid_restaurant: "Không tìm thấy nhà hàng nào phù hợp"
+  update_account: Cập nhật tài khoản
+  log_out: Đăng xuất
+  order_confirmation: Xác nhận đơn hàng
+  order_detail: Chi tiết đơn hàng
+  total: Tổng cộng
+  set: Phần
+  transport_fee: "Phí vận chuyển:"
+  distance: "0.1 km"
+  cash: Tiền mặt
+  change: Thay đổi
+  order: Đặt hàng
+  not_export_vat: Không xuất hóa đơn VAT
+  example_place: "Ví dụ: Tòa nhà HTP - 434 Trần Khát Chân, cho thêm 2 ly nhựa..."
+  address: "Địa chỉ:"
