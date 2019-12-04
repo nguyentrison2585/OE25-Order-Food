@@ -1,0 +1,56 @@
+<div class="block-section">
+  <div class="container">
+    <div class="now-incoming incoming-full">
+      <div class="slick-slider slick-initialized">
+        <div class="slick-list">
+          <div class="slick-track">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="now-incoming incoming-full mt-5">
+      <div class="slick-slider slick-initialized">
+        <div class="slick-list">
+          <div class="slick-track"></div>
+        </div>
+      </div>
+    </div>
+    <div class="table-cancel-confirm-container">
+    </div>
+    <h1 class="block-title mb-4 text-center"><%= t "history_order" %></h1>
+    <div class="history-switch">
+      <div class="item now active"><%= t "welcome" %></div>
+    </div>
+    <div class="history-table-container">
+      <div class="filter-table">
+        <div class="filter-table-item ">
+          <div class="text-nowrap">
+            <span class="filter-table-label"><%= t "status" %></span>
+            <select name="" class="form-control filter-table-input">
+              <option value="" selected=""><%= t "all" %></option>
+              <option value=""><%= t "complete" %></option>
+              <option value=""><%= t "cancel" %></option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-table-item">
+        </div>
+        <div class="filter-table-item">
+        </div>
+        <div class="filter-table-item">
+          <button type="button" class="btn btn-sm"><%= t "search" %></button>
+        </div>
+      </div>
+      <div class="history-table">
+        <div class="history-table-row history-table-heading">
+          <div class="history-table-cell history-table-col1"><%= t "number" %></div>
+          <div class="history-table-cell history-table-col2"><%= t "time" %></div>
+          <div class="history-table-cell history-table-col3"><%= t "place" %></div>
+          <div class="history-table-cell history-table-col4"><%= t "total_money" %></div>
+          <div class="history-table-cell history-table-col5"><%= t "status" %></div>
+          <div class="history-table-cell history-table-col6"><%= t "detail" %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

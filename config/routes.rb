@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 
     resources :users
     resources :restaurants
-    resources :orders, only: %i(new create update destroy)
+    resources :orders, only: %i(new create show)
   end
 end

@@ -28,7 +28,7 @@ $(document).ready(function() {
     billDishPrices = $('.price-order');
 
     _.forEach(addButtons, function(button, index) {
-      button.addEventListener('click', function(){ addItem(index); });
+      button.addEventListener('click', function(){ addItem(index, this); });
     });
 
     resetButton.on('click', resetOrder);
@@ -133,7 +133,7 @@ $(document).ready(function() {
       billDishPrices[j].textContent = itemAmount + " đ";
     }
 
-    function addItem(index) {
+    function addItem(index, btn) {
       checkToStartSession();
       var j, check = false;
       for (j = 0;j < billDishNames.length; j++) {
@@ -152,10 +152,12 @@ $(document).ready(function() {
           textContent);
         sessionStorage['order-price-' + j] = parseInt(billDishPrices[j].
           textContent);
+        sessionStorage['order-id-' + j] = $(btn).attr('data-id');
         sessionStorage['total-amount'] = parseInt(totalAmounts[0].textContent);
+
       }
       else {
-        addOrderItem(index);
+        addOrderItem(index, $(btn).attr('data-id'));
         increaseAmount(index);
 
         orderNumbers = $('.number-order');
@@ -173,6 +175,7 @@ $(document).ready(function() {
           minusItem(this);
         });
 
+        sessionStorage['order-id-' + sessionStorage['storage-lenght']] = $(btn).attr('data-id');
         sessionStorage['order-name-' + sessionStorage['storage-lenght']] =
           billDishNames[sessionStorage['storage-lenght']].textContent;
         sessionStorage['order-number-' + sessionStorage['storage-lenght']] =
@@ -213,6 +216,7 @@ $(document).ready(function() {
       nameOrder.classList.add('name-order');
       var txtName = document.createTextNode(sessionStorage['order-name-' +
         index]);
+      nameOrder.setAttribute('data-id', 'pick-' + sessionStorage['order-id-' + index].split('-')[0]);
       nameOrder.appendChild(txtName);
       clearfix.appendChild(nameOrder);
 
@@ -227,7 +231,7 @@ $(document).ready(function() {
       orderCardGroup.append(orderItem);
     }
 
-    function addOrderItem(index) {
+    function addOrderItem(index, dishId) {
       var orderItem = document.createElement('div');
       orderItem.classList.add('order-card-item');
 
@@ -252,6 +256,7 @@ $(document).ready(function() {
 
       var nameOrder = document.createElement('span');
       nameOrder.classList.add('name-order');
+      nameOrder.setAttribute('data-id', 'pick-' + dishId);
       var txtName = document.createTextNode(dishNames[index].innerHTML);
       nameOrder.appendChild(txtName);
       clearfix.appendChild(nameOrder);
@@ -352,34 +357,4 @@ $(document).ready(function() {
       decreaseTotalNumber();
     }
   }
-
-  $("#button_order").click(function(e){
-    $('.order-list').children().remove();
-    var ordersLength= $('.order-card-item').length;
-    if (ordersLength==0)
-    {
-      e.stopPropagation();
-      return;
-    }
-    for(var i=0; i<ordersLength;i++){
-      var number_order = $('.number-order')[i].textContent;
-      var name_order = $('.name-order')[i].textContent;
-      var price_order = $('.price-order')[i].textContent;
-      var render = "<div class='order-item'><span class='order-item-number'>";
-      render += number_order;
-      render += "</span><div class='order-item-info'><div class='order-item-name'><span class='txt-bold'>";
-      render += name_order;
-      render += "&nbsp;</span></div><div class='order-item-note'></div></div><div class='order-item-price'><span style='font-weight: 400;position: relative;top: -9px;font-size: 10px;right: 0;'>";
-      render += price_order;
-      render += "</span></div></div>";
-      render += ""
-      $('.order-list').append(render);
-    }
-
-    render1 = totalAmounts[0].textContent;
-    $('#total_amount').text(render1);
-
-    render2 = totalOrderNumber[0].textContent;
-    $('#number_set'). text(render2);
-  });
 });

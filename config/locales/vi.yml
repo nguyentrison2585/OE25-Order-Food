@@ -107,3 +107,18 @@ vi:
   save_change: "Lưu thay đổi"
   user_updated: "Thông tin đã được thay đổi"
   user_update_fail: "Thay đổi thông tin không thành công"
+  order_successful: Đặt hàng thành công
+  order_not_successful: Đặt hàng không thành công
+  not_logged_in: Chưa đăng nhập
+  history_order: Lịch sử đặt hàng
+  welcome: Welcome
+  status: "Trạng thái"
+  all : Tất cả
+  complete: Đã hoàn thành
+  cancel: Đã hủy
+  search: Tìm kiếm
+  number: STT
+  time: Thời gian
+  place: Địa điểm
+  total_money: Tổng tiền
+  detail: Chi tiết

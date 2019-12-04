@@ -170,94 +170,97 @@
     </button>
   </div>
 </div>
-<div class="modal" id="modal-order">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content modal-order-detail">
-      <span class ="close" data-dismiss="modal">
-        <%= image_tag "delete.svg", alt:"delete" %>
-      </span>
-      <div class="modal-header">
-        <%= t "order_confirmation" %>
-      </div>
-      <div class="modal-body">
-        <div class="order-right">
-          <p class="title-popup-order">
-            <%= t "order_detail" %>
-            <i class="icon-arrow-thin right" aria-hidden="true"></i>
-          </p>
-          <div class="order-list">
-          </div>
-          <div class="col-auto">
-            <span class="txt-bold txt-blue font16">
-              <span class="total-amount">
+
+<%= form_tag orders_path, id: "submit-form", method: "post" do %>
+  <div class="modal" id="modal-order">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-order-detail">
+
+        <div class="modal-header">
+          <span class ="close" data-dismiss="modal">
+          <%= image_tag "delete.svg", alt:"delete" %>
+        </span>
+          <%= t "order_confirmation" %>
+        </div>
+        <div class="modal-body">
+          <div class="order-right">
+            <p class="title-popup-order">
+              <%= t "order_detail" %>
+              <i class="icon-arrow-thin right" aria-hidden="true"></i>
+            </p>
+            <div class="order-list">
+            </div>
+            <div class="col-auto">
+              <span class="txt-bold txt-blue font16">
+                <span class="total-amount">
+                </span>
+                <span class="amount"></span>
               </span>
-              <span class="amount"></span>
-            </span>
-          </div>
-          <div class="info-order">
-            <div class="row">
-              <div class="col"><%= t "total" %>
-                <span class="txt-bold" id = "number_set">
-                </span> <%= t "set" %>
+            </div>
+            <div class="info-order">
+              <div class="row">
+                <div class="col"><%= t "total" %>
+                  <span class="txt-bold" id = "number_set">
+                  </span> <%= t "set" %>
+                </div>
+                <div class="col-auto txt-bold" >
+                  <span id ="total_amount"></span>
+                  <span class="money_unit">
+                    <%= t "dong" %>
+                  </span>
+                </div>
               </div>
-              <div class="col-auto txt-bold" >
-                <span id ="total_amount"></span>
-                <span class="money_unit">
-                  <%= t "dong" %>
-                </span>
+              <div class="row">
+                <div class="col-auto">
+                  <span class="money_unit">
+                  </span>
+                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-auto">
-                <span class="money_unit">
-                </span>
+            <div class="note-order "></div>
+            <div class="padding-10 txt-bold font16">
+              <div class="row">
+                <div class="col-auto">
+                  <span class="money_unit">
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="note-order "></div>
-          <div class="padding-10 txt-bold font16">
-            <div class="row">
-              <div class="col-auto">
-                <span class="money_unit">
-                </span>
+            <div class="payment-methods">
+              <div class="row">
+                <div class="col">
+                  <span class="txt-bold font16 txt-black"><%= t "cash" %></span>
+                </div>
+                <div class="col-auto">
+                  <i class="icon-arrow-thin right" aria-hidden="true"></i>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="payment-methods">
-            <div class="row">
-              <div class="col">
-                <span class="txt-bold font16 txt-black"><%= t "cash" %></span>
-              </div>
-              <div class="col-auto">
-                <i class="icon-arrow-thin right" aria-hidden="true"></i>
-              </div>
+            <div class="order-note">
+              <label for="address"><%= t "address" %></label>
+              <textarea placeholder="<%= t "example_place" %>" id="input-address" required></textarea>
             </div>
-          </div>
-          <div class="order-note">
-            <label for="address"><%= t "address" %></label>
-            <textarea placeholder="<%= t "example_place" %>" name="note">
-            </textarea>
-          </div>
-          <div class="not-vat">
-            <span class="icon icon-vatnot">
-              <%= image_tag "VAT.jpg", alt:"vat" %>
-            </span>
-            <span class="txt-gray"><%= t "not_export_vat" %></span>
+            <div class="not-vat">
+              <span class="icon icon-vatnot">
+                <%= image_tag "VAT.jpg", alt:"vat" %>
+              </span>
+              <span class="txt-gray"><%= t "not_export_vat" %></span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <div class="submit-order">
-          <%= t "order" %>
-          <i class="fas fa-arrow-right"></i>
-          <span class="total-price">
-            <div>
-              <span class="money_unit">
+        <div class="modal-footer">
+            <button class="submit-order" id="btn-submit-form">
+              <%= t "order" %>
+              <i class="fas fa-arrow-right"></i>
+              <span class="total-price">
+                <div>
+                  <span class="money_unit">
+                  </span>
+                </div>
               </span>
-            </div>
-          </span>
+            </button>
         </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
