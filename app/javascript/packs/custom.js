@@ -33,6 +33,22 @@ $(document).ready(function() {
 
     resetButton.on('click', resetOrder);
 
+    $('#dropbtn').on('click', dropdown);
+
+    function dropdown() {
+      $('#myDropdown').toggleClass('show');
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = $('.dropdown-content');
+        for (let i = 0; i < dropdowns.length; i++) {
+          var openDropdown = $(dropdowns[i]);
+          openDropdown.removeClass('show');
+        }
+      }
+    }
+
     function checkToStartSession() {
       if (sessionStorage.getItem('storage-lenght') === null) {
         sessionStorage['storage-lenght'] = 0;
@@ -308,7 +324,7 @@ $(document).ready(function() {
           totalAmounts[1].textContent = 0;
         }
         else {
-          decreaseItemAndTotal(i, j);
+          decreaseTotal(i)
           for (let index = j;index < sessionStorage['storage-lenght'];index++) {
             sessionStorage['order-name-' + index] =
               sessionStorage['order-name-' + (index+1)];

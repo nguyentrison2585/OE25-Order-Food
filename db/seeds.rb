@@ -18,7 +18,7 @@ end
     discount: 15,
     user_id: rand(5)+1)
 
-  restaurant.res_image.attach(io: File.open(Rails.root
+  restaurant.image.attach(io: File.open(Rails.root
     .join("app", "assets", "images", "restaurant-#{n+1}.jpg")),
     filename: "restaurant-#{n+1}.jpg")
 end
@@ -31,7 +31,7 @@ Restaurant.all.each do |r|
         description: "Ngon",
         price: 1000000
       )
-    dish.dish_image.attach(io: File.open(Rails.root
+    dish.image.attach(io: File.open(Rails.root
       .join("app", "assets", "images", "food-#{n+1}.jpg")),
       filename: "food-#{n+1}.jpg")
   end

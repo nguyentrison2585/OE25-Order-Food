@@ -6,6 +6,7 @@ vi:
   restaurant: "Nhà hàng"
   sign_up: "Đăng ký"
   log_in: "Đăng nhập"
+  log_out: "Đăng xuất"
   company: "Công ty"
   company_address: "Địa chỉ công ty"
   term: "Quy chế"
@@ -24,7 +25,7 @@ vi:
   our_email: "Email: linhjava98@gmail.com"
   restaurant_name: "Quạc Kí - Bún & Miến Ngan"
   restaurant_address: "150 Lạc Nghiệp, Quận Hai Bà Trưng, Hà Nội"
-  sale_all: "Giảm hết 20%"
+  sale_all: "Giảm hết %{percent}%"
   search_res: "Tìm nhà hàng"
   search_dish: "Tìm món ăn"
   registered: "Đã Đăng Ký Bộ Công Thương"
@@ -35,6 +36,7 @@ vi:
   name: Họ và tên
   email: Email
   password: Mật khẩu
+  password_confirm: "Nhập lại mật khẩu"
   password_confirmation: Xác nhận mật khẩu
   phone_number: Số điện thoại
   create_my_account: Tạo tài khoản
@@ -48,9 +50,10 @@ vi:
   invalid_combination: Mật khẩu hoặc email không hợp lệ
   fail_sign_up: Đăng ký không thành công
   order_history: Lịch sử đơn hàng
+  update_account: Cập nhật tài khoản
   number_rates: "100+"
   rate_from: "lượt đánh giá từ Linh Son Food"
-  restaurant_status: "Đã đóng"
+  restaurant_status: "Mở cửa"
   price_range: "70,000 - 130,000"
   service_fee: "Phí dịch vụ"
   no_fee: "0% Phí phục vụ"
@@ -59,7 +62,7 @@ vi:
   prepare: "Chuẩn bị"
   prepare_time: "10 phút"
   menu: "Thực đơn"
-  sale_promotion: "Giảm trực tiếp 15% trên giá món.
+  sale_promotion: "Giảm trực tiếp %{percent}% trên giá món.
     Nhập mã ưu đãi để được giảm nhiều hơn"
   freeship: 'FREESHIP trong 5km : Ưu đãi có giới hạn: nhập mã "FREE5"
     Ưu đãi không giới hạn : nhập mã "APFREE5" , thanh toán bằng AirPay'
@@ -94,3 +97,13 @@ vi:
   not_export_vat: Không xuất hóa đơn VAT
   example_place: "Ví dụ: Tòa nhà HTP - 434 Trần Khát Chân, cho thêm 2 ly nhựa..."
   address: "Địa chỉ:"
+  user_info: "Thông tin người dùng"
+  upload_avatar: "Tải ảnh đại diện"
+  upload_from: "Tải lên từ"
+  pick: "Chọn"
+  accept_image: "Chấp nhận GIF, JPEG, PNG với kích thước tối đa 5.0 MB"
+  update: "Cập nhật"
+  change_info: "Thay đổi thông tin"
+  save_change: "Lưu thay đổi"
+  user_updated: "Thông tin đã được thay đổi"
+  user_update_fail: "Thay đổi thông tin không thành công"
