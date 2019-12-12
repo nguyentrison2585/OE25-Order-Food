@@ -8,3 +8,5 @@ valid_email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
 res_per_page: 15
 max_size_image: 5
 valid_image_types: ["image/jpeg", "image/gif", "image/png"]
+order_page: 5
+time_format: "%H:%M  %d/%m/%Y "

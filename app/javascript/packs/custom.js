@@ -1,4 +1,22 @@
 $(document).ready(function() {
+  $(document).on('click', '#dropbtn', function(){
+    dropdown();
+  });
+
+  function dropdown() {
+    $('#myDropdown').toggleClass('show');
+  }
+
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = $('.dropdown-content');
+      for (let i = 0; i < dropdowns.length; i++) {
+        var openDropdown = $(dropdowns[i]);
+        openDropdown.removeClass('show');
+      }
+    }
+  }
+
   if (typeof(Storage) !== "undefined") {
     var addButtons = $('.btn-adding');
     var resetButton = $('#btn-reset');
@@ -32,22 +50,6 @@ $(document).ready(function() {
     });
 
     resetButton.on('click', resetOrder);
-
-    $('#dropbtn').on('click', dropdown);
-
-    function dropdown() {
-      $('#myDropdown').toggleClass('show');
-    }
-
-    window.onclick = function(event) {
-      if (!event.target.matches('.dropbtn')) {
-        var dropdowns = $('.dropdown-content');
-        for (let i = 0; i < dropdowns.length; i++) {
-          var openDropdown = $(dropdowns[i]);
-          openDropdown.removeClass('show');
-        }
-      }
-    }
 
     function checkToStartSession() {
       if (sessionStorage.getItem('storage-lenght') === null) {

@@ -1,0 +1,60 @@
+<div class="block-section">
+  <div class="container">
+    <div class="now-incoming incoming-full">
+      <div class="slick-slider slick-initialized">
+        <div class="slick-list">
+          <div class="slick-track">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="now-incoming incoming-full mt-5">
+      <div class="slick-slider slick-initialized">
+        <div class="slick-list">
+          <div class="slick-track"></div>
+        </div>
+      </div>
+    </div>
+    <div class="table-cancel-confirm-container">
+    </div>
+    <h1 class="block-title mb-4 text-center"><%= t "order_details" %></h1>
+    <div class="history-switch">
+      <div class="item now active"><%= t "welcome" %></div>
+    </div>
+    <div class="history-table-container">
+      <div class="history-table">
+        <div class="history-table-row history-table-heading">
+          <div class="history-table-cell history-table-col1"><%= t "number" %></div>
+          <div class="history-table-cell history-table-col2"><%= t "name_dish" %></div>
+          <div class="history-table-cell history-table-col3"><%= t "image_dish" %></div>
+          <div class="history-table-cell history-table-col4"><%= t "category" %></div>
+          <div class="history-table-cell history-table-col5"><%= t "count" %></div>
+          <div class="history-table-cell history-table-col6"><%= t "amount" %></div>
+        </div>
+        <% @order_details.each_with_index do |order_details, index| %>
+          <div class="history-table-row ">
+            <div class="history-table-cell history-table-col1">
+              <%= page_index params[:page], index, Settings.order_page %>
+            </div>
+            <div class="history-table-cell history-table-col2">
+              <%= order_details.order_detailable.name %>
+            </div>
+            <div class="history-table-cell history-table-col3">
+              <%= image_tag(order_details.order_detailable.image) %>
+            </div>
+            <div class="history-table-cell history-table-col4">
+              <%= order_details.order_detailable_type %>
+            </div>
+            <div class="history-table-cell history-table-col5">
+              <%= order_details.count %>
+            </div>
+            <div class="history-table-cell history-table-col6">
+              <%= order_details.amount %>
+            </div>
+          </div>
+        <% end %>
+        <%= paginate @order_details %>
+      </div>
+    </div>
+  </div>
+</div>

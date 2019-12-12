@@ -130,3 +130,16 @@ en:
   restaurant_name: "Restaurant name"
   restaurant_info: "Restaurant info"
   restaurant_addr: "Address"
+  order_details: Order Details
+  views:
+    pagination:
+      next: Next
+      last: Last
+      first: First
+      previous: Previous
+  name_dish: Name Dish
+  image_dish: Image
+  category: Category
+  count: Count
+  amount: Amount
+  not_found_order: Not Found Order
