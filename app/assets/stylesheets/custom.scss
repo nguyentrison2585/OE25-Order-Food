@@ -1,6 +1,4 @@
 @import 'color.scss';
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
 
 body {
   margin: 0;
@@ -54,8 +52,8 @@ h1, .h1 {
 }
 
 .btn {
-  color: $white;
-  background-color: $blue;
+  color: $blue;
+  background-color: $white;
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -137,15 +135,42 @@ a {
     position: static;
   }
 
-  .btn-login {
+  .btn-login, .dropbtn {
     padding: 7px 12px;
     background-color: $white;
   }
 
-  .btn-login:hover {
-    color: $gray;
-    background-color: $dark-blue;
+  .btn-login:hover, .dropbtn:hover {
+    color: $white;
+    background-color: $blue;
   }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    left: auto;
+    display: none;
+    position: absolute;
+    background-color: $white;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px $gray-medium-lighter;
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown a:hover {background-color: $gray-light;}
+
+  .show {display: block;}
 }
 
 .align-items-center {
@@ -331,6 +356,10 @@ a {
     background-color: $white;
     position: relative;
     display: block;
+  }
+
+  a:hover {
+    box-shadow: 0 0 10px 5px $light;
   }
 
   .img-restaurant {
@@ -522,6 +551,169 @@ button, input, optgroup, select, textarea {
   }
 }
 
+/* login signup container */
+.login-container, .signup-container {
+  width: 600px;
+  margin: auto;
+  clear: both;
+  padding: 30px 0;
+
+  .content {
+    padding: 30px;
+    background-color: $white;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 17px;
+  }
+
+  .sm-login {
+    color: $white;
+    background-color: $blue;
+  }
+}
+
+/* user profile */
+.now-detail-profile {
+  width: 827px;
+  margin: auto;
+  min-height: 428px;
+  position: relative;
+  background-color: $white;
+  border-radius: 4px;
+  box-shadow: 0 0 3px 0 $gray;
+  margin-top: 35px;
+
+  .header-user-profile {
+    font-size: 18px;
+    color: $black;
+    font-weight: 700;
+    padding: 16px 15px;
+    border-bottom: 1px solid $gray-medium-lighter;
+    position: relative;
+    background: $gray-medium-lighter;
+  }
+
+  .user-profile-update {
+    padding: 30px;
+    position: relative;
+
+    .title-user {
+      font-weight: 700;
+      font-size: 15px;
+      color: $blue-medium-dark;
+      padding-bottom: 20px;
+      position: relative;
+    }
+
+    .user-avatar-image img {
+      width: 115px;
+      height: 115px;
+      border-radius: 50%;
+    }
+
+    .custom-file-image {
+      display: inline-block;
+      margin-left: 3px;
+
+      .label-custom {
+        color: $black;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: $gray-medium-lighter;
+        text-transform: capitalize;
+        padding: 3px 18px 4px;
+        border-radius: 3px;
+        margin-bottom: 0;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .user-profile-update:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    right: 30px;
+    height: 1px;
+    background-color: $gray-medium-light;
+  }
+}
+
+.align-items-center {
+  -ms-flex-align: center!important;
+  align-items: center!important;
+}
+
+.col-3 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.col-4 {
+  -ms-flex: 0 0 33.33333%;
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+}
+
+.col-8 {
+  -ms-flex: 0 0 66.66667%;
+  flex: 0 0 66.66667%;
+  max-width: 66.66667%;
+}
+
+.col-9 {
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.btn-blue-4 {
+  color: $white;
+  background-color: $blue-dark;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.input-group>.custom-file, .input-group>.custom-select,
+  .input-group>.form-control {
+  position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-bottom: 0;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .23rem .6rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  color: $gray-medium-dark;
+  background-color: $white;
+  background-clip: padding-box;
+  border: 1px solid $gray-medium-light;
+  border-radius: 3px;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+.font-italic {
+  font-style: italic!important;
+}
 
 /* restaurant info*/
 .now-detail-restaurant {
@@ -687,8 +879,8 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 .opentime-status .offline {
-  background-color: $gray-medium-dark;
-  color: $gray-medium-dark;
+  background-color: $green-dark;
+  color: $green-dark;
 }
 
 .opentime-status .stt {
@@ -702,7 +894,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 .now-detail-restaurant .opentime-status .offline:before {
-  background-color: $gray-medium-dark;
+  background-color: $green-dark;
 }
 
 .now-detail-restaurant .opentime-status .stt:before {
@@ -1789,7 +1981,7 @@ aside {
   pointer-events: auto;
   background-color: $white;
   background-clip: padding-box;
-  border: 1px solid rgba(0,0,0,.2);
+  border: 1px solid $gray-medium-lighter;
   border-radius: .3rem;
   outline: 0;
 }

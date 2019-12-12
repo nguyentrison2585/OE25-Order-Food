@@ -6,33 +6,33 @@
         <div class="logo-now col-auto">
           <span>
             <%= link_to image_tag("logo.png", alt:"rails_logo",
-            class: "cover"), root_url %>
+              class: "cover"), root_url, target: "_self" %>
           </span>
         </div>
         <div class="main-nav col">
           <a class="nav-item active" href="#"><%= t "restaurant" %></a>
         </div>
         <div class="user-acc col-auto">
-          <button type="button" class="btn btn-none-bg btn-login">
-            <% if logged_in? %>
-              <div class="dropdown">
-                <%= link_to( "#", class: "dropdown-toggle",
-                  data:{toggle: "dropdown"}) do %>
-                  <%= current_user.name %>
-                  <b class="caret"></b>
-                <% end %>
-                <ul class="dropdown-menu">
-                  <li><%= link_to t("order_history"), "#" %></li>
-                  <li><%= link_to t("update_account"), "#" %></li>
-                  <li>
-                    <%= link_to t("log_out"), logout_path, method: :delete %>
-                  </li>
-                </ul>
+          <% if logged_in? %>
+            <div class="dropdown">
+              <button class="dropbtn btn btn-none-bg" id="dropbtn">
+                <%= current_user.name %>
+              </button>
+              <div id="myDropdown" class="dropdown-content">
+                <%= link_to t("order_history"), "#", target: "_self" %>
+                <%= link_to t("update_account"), current_user,
+                  target: "_self" %>
+                <%= link_to t("log_out"), logout_path, target: "_self",
+                  method: :delete %>
               </div>
-            <% else %>
-              <%= link_to t("log_in"), login_path %>
+            </div>
+          <% else %>
+            <%= link_to login_path do %>
+              <button type="button" class="btn btn-none-bg btn-login">
+                <%= t("log_in") %>
+              </button>
             <% end %>
-          </button>
+          <% end %>
         </div>
       </div>
     </div>

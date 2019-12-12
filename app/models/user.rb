@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :rates, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_one :restaurant, dependent: :destroy
+  has_one_attached :image
 
   before_save{email.downcase!}
   VALID_EMAIL_REGEX = Settings.valid_email_regex

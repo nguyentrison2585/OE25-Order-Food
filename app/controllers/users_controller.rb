@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: :show
+  before_action :load_user, only: %i(show update)
+
+  def show; end
 
   def new
     @user = User.new
@@ -10,14 +12,22 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash.now[:success] = t "sign_up_successful"
-      redirect_to @user
+      redirect_to root_url
     else
       flash.now[:warning] = t "fail_sign_up"
       render :new
     end
   end
 
-  def show; end
+  def update
+    if @user.update user_params
+      flash[:success] = t "user_updated"
+    else
+      flash[:danger] = t "user_update_fail"
+    end
+    @user.image.attach params[:user][:image] if params[:user][:image]
+    redirect_to @user
+  end
 
   private
 

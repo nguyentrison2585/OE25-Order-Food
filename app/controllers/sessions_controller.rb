@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       log_in @user
       redirect_to root_url
     else
-      flash[:danger] = t "invalid_combination"
+      flash.now[:danger] = t "invalid_combination"
       render :new
     end
   end

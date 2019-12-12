@@ -5,6 +5,7 @@ en:
   contact: "Contact"
   restaurant: "Restaurant"
   sign_up: "Sign up"
+  log_out: "Logout"
   company: "Company"
   company_address: "Company_address"
   term: "Term"
@@ -23,7 +24,7 @@ en:
   our_email: "Email: linhjava98@gmail.com"
   restaurant_name: "Pizza Mập - Pizza Online"
   restaurant_address: "150 Lạc Nghiệp, Quận Hai Bà Trưng, Hà Nội"
-  sale_all: "Giảm hết 20%"
+  sale_all: "Giảm hết %{percent}%"
   search_res: "Find restaurant"
   search_dish: "Find dish"
   registered: "Đã Đăng Ký Bộ Công Thương"
@@ -32,10 +33,10 @@ en:
   down_android: "Down app Android"
   linh_son_food: Linh Son Food
   log_in: Log in
-  name: name
   name: Name
   email: Email
   password: Password
+  password_confirm: "Confirm password"
   password_confirmation: Password Confirmation
   phone_number: Phone number
   create_my_account: Create my account
@@ -53,7 +54,7 @@ en:
   restaurant_kind: "Shop online"
   number_rates: "100+"
   rate_from: "rates from Linh Son Food"
-  restaurant_status: "Closed"
+  restaurant_status: "Open"
   price_range: "70,000 - 130,000"
   service_fee: "Service fee"
   no_fee: "0% Service fee"
@@ -62,7 +63,7 @@ en:
   prepare: "Prepare"
   prepare_time: "10 minutes"
   menu: "Menu"
-  sale_promotion: "15% off on all menu items.
+  sale_promotion: "%{percent}% off on all menu items.
     Enter voucher code to enjoy more discount"
   freeship: 'Freeship within 5km: Enter code "FREESHIP"'
   item: "item"
@@ -95,3 +96,13 @@ en:
   not_export_vat: Don't export VAT bill
   example_place: "Ví dụ: Tòa nhà HTP - 434 Trần Khát Chân, cho thêm 2 ly nhựa..."
   address: "Address:"
+  user_info: "User information"
+  upload_avatar: "Upload your avatar"
+  upload_from: "Upload from"
+  pick: "Pick"
+  accept_image: "Accept GIF, JPEG, PNG with maximum size 5MB"
+  update: "Update"
+  change_info: "Change information"
+  save_change: "Save changes"
+  user_updated: "Profile updated"
+  user_update_fail: "Profile update fail"

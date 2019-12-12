@@ -2,8 +2,7 @@
 <div class="now-detail-restaurant clearfix">
   <div class="container">
     <div class="detail-restaurant-img">
-      <%= image_tag @restaurant.res_image, alt: t("restaurant_name"),
-      class: "" %>
+      <%= image_tag @restaurant.image, alt: @restaurant.name %>
     </div>
     <div class="detail-restaurant-info">
       <nav aria-label="breadcrumb">
@@ -81,7 +80,9 @@
           <div class="promotions-order">
             <div class="promotion-item">
               <%= image_tag "promo-code.png", class: "icon-promotion" %>
-              <div class="content"><%= t "sale_promotion" %></div>
+              <div class="content">
+                <%= t "sale_promotion", percent: @restaurant.discount %>
+              </div>
             </div>
             <div class="promotion-item group-order-campaign">
               <%= image_tag "freeship.png", class: "icon-promotion" %>
@@ -97,11 +98,9 @@
               </p>
             </div>
             <div id="restaurant-item">
-              <div aria-label="grid" aria-readonly="true"
-              class="food_list"
-              role="grid" tabindex="0">
-              <div class="food_list_container"
-              role="rowgroup">
+              <div aria-label="grid" aria-readonly="true" class="food_list"
+                role="grid" tabindex="0">
+              <div class="food_list_container" role="rowgroup">
               <ul>
                 <%= render partial: "item", collection: @dishes,
                 as: :dish %>
@@ -164,11 +163,10 @@
         </div>
       </div>
     </div>
-    <button class="btn btn-red" id = "button_order"
-    data-toggle="modal" data-target="#modal-order"
-    data-backdrop="static" data-keyboard="false">
+    <button class="btn btn-red" id = "button_order" data-toggle="modal"
+      data-target="#modal-order" data-backdrop="static" data-keyboard="false">
       <i class="fas fa-check-circle "></i>
-      <%= t "order_now" %>
+        <%= t "order_now" %>
     </button>
   </div>
 </div>
@@ -237,7 +235,8 @@
           </div>
           <div class="order-note">
             <label for="address"><%= t "address" %></label>
-            <textarea placeholder="<%= t "example_place" %>" name="note"></textarea>
+            <textarea placeholder="<%= t "example_place" %>" name="note">
+            </textarea>
           </div>
           <div class="not-vat">
             <span class="icon icon-vatnot">
