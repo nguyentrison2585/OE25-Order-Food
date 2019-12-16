@@ -106,3 +106,18 @@ en:
   save_change: "Save changes"
   user_updated: "Profile updated"
   user_update_fail: "Profile update fail"
+  order_successful: Order Successfully
+  order_not_successful: Order Not Successfully
+  not_logged_in : Not logged in
+  history_order: History Order
+  welcome: Welcome
+  status: "Status"
+  all: All
+  complete: Complete
+  cancel: Cancel
+  search: Search
+  number: Number
+  time: Time
+  place: Place
+  total_money: Total Money
+  detail: Detail

@@ -54,6 +54,7 @@ h1, .h1 {
 .btn {
   color: $blue;
   background-color: $white;
+  background-color: $blue;
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -2258,4 +2259,16 @@ fa-question-circle {
   top: -9px;
   font-size: 10px;
   right: 0;
+}
+
+.order-item-price span{
+  font-weight: 400;
+  position: relative;
+  top: -9px;
+  font-size: 10px;
+  right: 0;
+}
+
+.slick-track {
+  opacity: 1; transform: translate3d(0px, 0px, 0px);
 }
