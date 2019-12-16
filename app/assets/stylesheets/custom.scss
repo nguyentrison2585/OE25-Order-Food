@@ -579,14 +579,146 @@ button, input, optgroup, select, textarea {
 }
 
 /* user profile */
+.now-navigation-profile {
+  background-color: $white;
+  border-radius: 4px;
+  float: left;
+  box-shadow: 0 0 3px $gray-dark;
+  width: 320px;
+  margin-top: 35px;
+  padding: 5px 16px 0;
+  min-height: 428px;
+
+  .header-profile {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .avatar-circle {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: $gray-medium-lighter;
+  }
+
+  a {
+    color: $gray-dark;
+  }
+
+  a.active {
+    cursor: default;
+  }
+
+  .item-navigation.active {
+    color: $red;
+  }
+
+  .item-navigation:last-child {
+    border: 0;
+  }
+
+  .item-navigation {
+    font-size: 13px;
+    text-transform: none;
+    color: $gray-dark;
+    border-bottom: 1px solid $gray-medium-lighter;
+    display: block;
+    padding: 10px 0;
+    position: relative;
+
+    .far, .fas {
+      font-size: 16px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .fa-user:before {
+      content: "\f007";
+    }
+
+    .fa-shopping-cart:before {
+      content: "\f07a";
+    }
+
+    .fa-file-alt:before {
+      content: "\f15c";
+    }
+
+    .fa-map-marker-alt:before {
+      content: "\f3c5";
+    }
+
+    .nav-icon-arrow-thin {
+      border: solid $darker;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+    }
+
+    .nav-icon-arrow-thin.right {
+      transform: rotate(-45deg);
+    }
+
+    .nav-icon-arrow-thin.down {
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+
+    .nav-icon-arrow-thin {
+      border-width: 0 1px 1px 0;
+      margin-right: 5px;
+    }
+
+    .col {
+      padding-left: 0;
+    }
+    .col:hover {
+      color: $red;
+    }
+  }
+
+  .item-navigation:last-child {
+    border: 0;
+  }
+
+  .item-navigation:last-child:after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: $white;
+  }
+
+  .sub-navigation {
+    border-top: 1px solid $gray-medium-lighter;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: -10px;
+
+    .item-navigation:last-child:after {
+      width: 0;
+    }
+  }
+}
+
+.now-navigation-profile .sub-navigation .item-navigation.active .nav-icon-arrow-thin,
+.now-navigation-profile .sub-navigation .item-navigation:hover .nav-icon-arrow-thin,
+.now-navigation-profile .item-navigation:hover .nav-icon-arrow-thin {
+  border-color: $red;
+}
+
 .now-detail-profile {
+  float: right;
   width: 827px;
-  margin: auto;
   min-height: 428px;
   position: relative;
   background-color: $white;
   border-radius: 4px;
-  box-shadow: 0 0 3px 0 $gray;
+  box-shadow: 0 0 3px 0 $gray-dark;
   margin-top: 35px;
 
   .header-user-profile {
@@ -617,21 +749,33 @@ button, input, optgroup, select, textarea {
       border-radius: 50%;
     }
 
+    .restaurant-avatar-image img{
+      width: 480px;
+      height: 300px;
+    }
+
+    .upload-res-avt .col-4 {
+      height: 70px;
+      top: 230px;
+      text-align: center;
+    }
+
     .custom-file-image {
       display: inline-block;
       margin-left: 3px;
 
-      .label-custom {
-        color: $black;
-        font-size: 14px;
-        cursor: pointer;
-        background-color: $gray-medium-lighter;
-        text-transform: capitalize;
-        padding: 3px 18px 4px;
-        border-radius: 3px;
-        margin-bottom: 0;
-        margin-right: 10px;
-      }
+    }
+
+    .label-custom {
+      color: $black;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: $gray-medium-lighter;
+      text-transform: capitalize;
+      padding: 3px 18px 4px;
+      border-radius: 3px;
+      margin-bottom: 0;
+      margin-right: 10px;
     }
   }
 
@@ -685,7 +829,7 @@ button, input, optgroup, select, textarea {
 }
 
 .input-group>.custom-file, .input-group>.custom-select,
-  .input-group>.form-control {
+.input-group>.form-control {
   position: relative;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;

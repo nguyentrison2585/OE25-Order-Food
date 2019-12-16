@@ -1,0 +1,27 @@
+<div class="now-navigation-profile">
+  <div class="header-profile">
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <%= image_tag current_user.image, class: "avatar-circle",
+          alt: current_user.name %>
+      </div>
+      <div class="col txt-bold font15"><%= current_user.name %></div>
+    </div>
+  </div>
+  <div class="navigation-profile">
+    <%= link_to current_user, class: "item-navigation", target: "_self",
+      title: t("update_profile") do %>
+      <div class="row">
+        <div class="col-auto">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="col"><%= t "update_profile" %></div>
+        <div class="col-auto">
+          <i class="nav-icon-arrow-thin right"></i>
+        </div>
+      </div>
+    <% end %>
+    <%= render partial: "shared/nav_item", collection: current_user.restaurants,
+      as: "restaurant" %>
+  </div>
+</div>
