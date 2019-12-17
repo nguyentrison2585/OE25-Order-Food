@@ -39,6 +39,9 @@ $(document).ready(function(){
 
     render2 = $('#total-order-number')[0].textContent;
     $('#number_set').text(render2);
+
+    render3 = $('.fa-check-circle')[0].dataset.id;
+    formData.append('order[restaurant_id]', render3);
   });
 
   $(document).on('click', '#btn-submit-form', function(e){

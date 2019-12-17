@@ -8,7 +8,11 @@
           collection: @restaurants %>
       </div>
       <%= render partial: "restaurants/restaurant",  collection: @restaurants %>
-      <center><%= paginate @restaurants %></center>
+    </div>
+    <div>
+      <center>
+        <%= paginate @restaurants %>
+      </center>
     </div>
   </div>
 </div>

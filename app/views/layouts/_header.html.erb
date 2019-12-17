@@ -10,7 +10,7 @@
           </span>
         </div>
         <div class="main-nav col">
-          <a class="nav-item active" href="#"><%= t "restaurant" %></a>
+          <%= link_to t("restaurant"), root_url, class:"nav-item active" %>
         </div>
         <div class="user-acc col-auto">
           <% if logged_in? %>
@@ -19,9 +19,8 @@
                 <%= current_user.name %>
               </button>
               <div id="myDropdown" class="dropdown-content">
-                <%= link_to t("order_history"), history_order_path, target: "_self" %>
-                <%= link_to t("update_account"), current_user,
-                  target: "_self" %>
+                <%= link_to t("order_history"), orders_path, target: "_self" %>
+                <%= link_to t("update_account"), current_user, target: "_self" %>
                 <%= link_to t("log_out"), logout_path, target: "_self",
                   method: :delete %>
               </div>

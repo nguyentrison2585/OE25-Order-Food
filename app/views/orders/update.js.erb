@@ -1,0 +1,2 @@
+$('#order_status_<%= @order.id %>').html('<%= @order.status.humanize %>');
+$('#render_button_<%= @order.id %>').html('<%= j render "shared/button", order: @order %>');
