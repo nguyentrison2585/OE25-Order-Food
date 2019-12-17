@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
+    get "/order_details", to: "order_details#index"
+    get "/history_order", to: "orders#index"
 
     resources :users
     resources :restaurants

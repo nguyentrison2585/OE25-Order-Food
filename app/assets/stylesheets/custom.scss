@@ -52,7 +52,7 @@ h1, .h1 {
 }
 
 .btn {
-  color: $blue;
+  color: $black;
   background-color: $white;
   background-color: $blue;
   display: inline-block;
@@ -944,7 +944,9 @@ img {
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  padding-top: 12px;
   display: block;
+  text-align: center;
 }
 
 .rating {
@@ -2415,4 +2417,327 @@ fa-question-circle {
 
 .slick-track {
   opacity: 1; transform: translate3d(0px, 0px, 0px);
+}
+
+.block-section {
+  padding: 30px 0;
+}
+
+.now-incoming.incoming-full {
+  margin-bottom: 35px;
+}
+
+.slick-slider {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list, .slick-slider, .slick-track {
+  position: relative;
+  display: block;
+}
+
+.slick-slider .slick-list, .slick-slider .slick-track {
+  transform: translateZ(0);
+}
+
+.slick-list {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+
+element.style {
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.slick-track {
+  top: 0;
+  left: 0;
+}
+
+.mt-5, .my-5 {
+  margin-top: 3rem!important;
+}
+
+.block-title {
+  font-size: 1.53125rem;
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center!important;
+}
+
+.mb-4, .my-4 {
+  margin-bottom: 1.5rem!important;
+}
+
+.h1, h1 {
+  font-size: 2.1875rem;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .5rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.history-switch {
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.history-switch .active.now {
+  color: #cf2127;
+}
+
+.history-switch .active {
+  cursor: default;
+  background-color: #fff;
+  margin-bottom: -1px;
+  border: 1px solid #ebebeb;
+  border-bottom: 0;
+}
+
+.history-switch .item {
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 5px 25px;
+  border-radius: 5px 5px 0 0;
+}
+
+.history-table-container {
+  background: #fff;
+  padding: 20px 15px;
+  border: 1px solid #ebebeb;
+  border-top: 0;
+}
+
+.filter-table {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.filter-table-item {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  margin: 0 15px;
+}
+
+.text-nowrap {
+  white-space: nowrap!important;
+}
+
+.filter-table-label {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.history-table-container .filter-table .filter-table-item select {
+  font-size: 14px;
+}
+
+select.form-control:not([size]):not([multiple]) {
+  height: calc(1.7725rem + 2px);
+}
+
+.filter-table-input {
+  display: inline-block;
+  width: 150px;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+select:not(:-internal-list-box) {
+  background-color: buttonface;
+  overflow: visible !important;
+}
+
+select {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: black;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  -webkit-appearance: menulist;
+  box-sizing: border-box;
+  align-items: center;
+  white-space: pre;
+  -webkit-rtl-ordering: logical;
+  background-color: white;
+  cursor: default;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  border-radius: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(169, 169, 169);
+  border-image: initial;
+}
+
+.btn-group-sm>.btn, .btn-sm {
+  padding: .29rem .7rem;
+  font-size: .813rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+}
+
+button {
+  border-radius: 0;
+}
+
+button {
+  -webkit-appearance: button;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: buttontext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: buttonface;
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonface;
+  border-image: initial;
+}
+
+.history-table {
+  font-size: 13px;
+  margin-top: 30px;
+}
+
+.history-table-row:last-child {
+  border-bottom: none;
+}
+
+.history-table-heading {
+  color: red;
+  font-size: 15px;
+}
+
+.history-table-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  font-size: .75rem;
+  border-bottom: 1px solid #ebebeb;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.history-table-cell {
+  -ms-flex: 1 1;
+  flex: 1 1;
+  min-height: 0;
+  min-width: 0;
+  width: auto;
+  position: relative;
+  padding: 8px 5px;
+}
+
+.history-table-col1 {
+  width: 100px;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.history-table-col2 {
+  width: 200px;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.history-table-col3 {
+  width: 300px;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  text-align: center;
+  img{
+    width: 55px;
+  }
+}
+
+.history-table-col4 {
+  width: 200px;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.history-table-col5 {
+  width: 200px;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.history-table-col6 {
+  width: 50px;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  text-align: center;
 }

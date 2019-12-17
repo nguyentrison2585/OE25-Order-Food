@@ -19,7 +19,7 @@
                 <%= current_user.name %>
               </button>
               <div id="myDropdown" class="dropdown-content">
-                <%= link_to t("order_history"), "#", target: "_self" %>
+                <%= link_to t("order_history"), history_order_path, target: "_self" %>
                 <%= link_to t("update_account"), current_user,
                   target: "_self" %>
                 <%= link_to t("log_out"), logout_path, target: "_self",

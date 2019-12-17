@@ -132,3 +132,16 @@ vi:
   restaurant_addr: "Địa chỉ"
   restaurant_info: "Thông tin nhà hàng"
   restaurant_addr: "Địa chỉ"
+  order_details: Chi tiết đơn hàng
+  views:
+    pagination:
+      next: Tiếp
+      last: Cuối
+      first: Đầu
+      previous: Trước
+  name_dish: Tên
+  image_dish: Hình ảnh
+  category: Thể loại
+  count: Số lượng
+  amount: Tổng tiền
+  not_found_order: Không tìm thấy order
