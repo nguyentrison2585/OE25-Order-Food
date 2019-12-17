@@ -1,89 +1,94 @@
-<div class="now-detail-profile">
-  <div class="header-user-profile"><%= t "user_info" %></div>
-  <div class="content-user-profile">
-    <div class="user-profile-update">
-      <div class="title-user"><%= t "upload_avatar" %></div>
-      <div class="row">
-        <div class="col-3">
-          <div class="user-avatar-image">
-            <%= image_tag image_path(current_user), alt: @user.name %>
-          </div>
-        </div>
-        <div class="col-9">
-          <%= form_for @user do |f| %>
-            <div class="form-group">
-              <span><%= t "upload_from" %></span>
-              <div class="custom-file-image">
-                <%= f.file_field :image, hidden: "true", required: "true",
-                  accept: Settings.valid_image_types.join(",") %>
-                <%= f.label :image, class: "label-custom" do %>
-                  <%= t "pick" %>
-                <% end %>
-                <span class="font-italic font13"><%= t "accept_image" %></span>
-              </div>
-            </div>
-            <button class="btn btn-blue-4" type="submit">
-              <%= t "update" %>
-            </button>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="user-profile-update">
-      <%= form_for @user do |f| %>
-        <div class="title-user"><%= t "change_info" %></div>
-        <div class="row form-group align-items-center">
-          <div class="col-3 txt-bold"><%= t "name" %></div>
-          <div class="col-4">
-            <div class="input-group">
-              <%= f.text_field :name, class: "form-control",
-                placeholder: t("name") %>
-            </div>
-          </div>
-        </div>
-        <div class="row form-group align-items-center">
-          <div class="col-3 txt-bold"><%= t "phone_number" %></div>
-          <div class="col-4">
-            <div class="input-group">
-              <%= f.text_field :phone_number, class: "form-control",
-                placeholder: t("phone_number") %>
-            </div>
-          </div>
-        </div>
-        <div class="row form-group align-items-center">
-          <div class="col-3 txt-bold"><%= t "email" %></div>
-          <div class="col-8">
-            <div class="input-group">
-              <div class="show-email"><%= @user.email %></div>
-            </div>
-          </div>
-        </div>
-        <div class="row form-group align-items-center">
-          <div class="col-3 txt-bold"><%= t "password" %></div>
-          <div class="col-4">
-            <div class="input-group">
-              <%= f.password_field :password, class: "form-control",
-                placeholder: t("password") %>
-            </div>
-          </div>
-        </div>
-        <div class="row form-group align-items-center">
-          <div class="col-3 txt-bold"><%= t "password_confirm" %></div>
-          <div class="col-4">
-            <div class="input-group">
-              <%= f.password_field :password_confirmation,
-                class: "form-control", placeholder: t("password_confirm") %>
-            </div>
-          </div>
-        </div>
+<div class="container">
+  <%= render "shared/navigation" %>
+  <div class="now-detail-profile">
+    <div class="header-user-profile"><%= t "user_info" %></div>
+    <div class="content-user-profile">
+      <div class="user-profile-update">
+        <div class="title-user"><%= t "upload_avatar" %></div>
         <div class="row">
           <div class="col-3">
-            <button type="submit" class="btn btn-blue-4 btn-block">
-              <%= t "save_change" %>
-            </button>
+            <div class="user-avatar-image">
+              <%= image_tag image_path(@user), alt: @user.name %>
+            </div>
+          </div>
+          <div class="col-9">
+            <%= form_for @user do |f| %>
+              <div class="form-group">
+                <span><%= t "upload_from" %></span>
+                <div class="custom-file-image">
+                  <%= f.file_field :image, hidden: "true", required: "true",
+                    accept: Settings.valid_image_types.join(",") %>
+                  <%= f.label :image, class: "label-custom" do %>
+                    <%= t "pick" %>
+                  <% end %>
+                  <span class="font-italic font13">
+                    <%= t "accept_image" %>
+                  </span>
+                </div>
+              </div>
+              <button class="btn btn-blue-4" type="submit">
+                <%= t "update" %>
+              </button>
+            <% end %>
           </div>
         </div>
-      <% end %>
+      </div>
+      <div class="user-profile-update">
+        <%= form_for @user do |f| %>
+          <div class="title-user"><%= t "change_info" %></div>
+          <div class="row form-group align-items-center">
+            <div class="col-3 txt-bold"><%= t "name" %></div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_field :name, class: "form-control",
+                  placeholder: t("name") %>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <div class="col-3 txt-bold"><%= t "phone_number" %></div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_field :phone_number, class: "form-control",
+                  placeholder: t("phone_number") %>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <div class="col-3 txt-bold"><%= t "email" %></div>
+            <div class="col-8">
+              <div class="input-group">
+                <div class="show-email"><%= @user.email %></div>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <div class="col-3 txt-bold"><%= t "password" %></div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.password_field :password, class: "form-control",
+                  placeholder: t("password") %>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <div class="col-3 txt-bold"><%= t "password_confirm" %></div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.password_field :password_confirmation,
+                  class: "form-control", placeholder: t("password_confirm") %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <button type="submit" class="btn btn-blue-4 btn-block">
+                <%= t "save_change" %>
+              </button>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

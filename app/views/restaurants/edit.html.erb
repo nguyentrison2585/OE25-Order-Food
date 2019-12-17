@@ -1,0 +1,72 @@
+<div class="container">
+  <%= render "shared/navigation" %>
+  <div class="now-detail-profile">
+    <div class="header-user-profile"><%= t "restaurant_info" %></div>
+    <div class="content-user-profile">
+      <%= form_for @restaurant do |f| %>
+        <div class="user-profile-update">
+          <div class="title-user"><%= t "upload_avatar" %></div>
+          <div class="row upload-res-avt">
+            <div class="col-8">
+              <div class="restaurant-avatar-image">
+                <%= image_tag @restaurant.image, alt: @restaurant.name %>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <div class="restaurant-file-image">
+                  <span><%= t "upload_from" %></span>
+                  <%= f.file_field :image, hidden: "true",
+                    accept: Settings.valid_image_types.join(",") %>
+                  <%= f.label :image, class: "label-custom" do %>
+                    <%= t "pick" %>
+                  <% end %>
+                </div>
+                <span class="font-italic font13">
+                  <%= t "accept_image" %>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="user-profile-update">
+          <div class="title-user"><%= t "change_info" %></div>
+          <div class="row form-group align-items-center">
+            <div class="col-3 txt-bold"><%= t "restaurant_name" %></div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_field :name, class: "form-control",
+                  placeholder: t("restaurant_name") %>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <div class="col-3 txt-bold"><%= t "phone_number" %></div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_field :phone_number, class: "form-control",
+                  placeholder: t("phone_number") %>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <div class="col-3 txt-bold"><%= t "restaurant_addr" %></div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_area :address, class: "form-control",
+                  placeholder: t("restaurant_addr") %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <button type="submit" class="btn btn-blue-4 btn-block">
+                <%= t "save_change" %>
+              </button>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

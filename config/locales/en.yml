@@ -121,3 +121,12 @@ en:
   place: Place
   total_money: Total Money
   detail: Detail
+  update_profile: "Update profile"
+  upadte_info: "Update infomation"
+  dishes_list: "Dishes list"
+  combos_list: "Combos list"
+  restaurant_updated: "Restaurant information updated"
+  restaurant_update_fail: "Fail to update restaurant information"
+  restaurant_name: "Restaurant name"
+  restaurant_info: "Restaurant info"
+  restaurant_addr: "Address"

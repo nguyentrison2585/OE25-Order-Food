@@ -122,3 +122,13 @@ vi:
   place: Địa điểm
   total_money: Tổng tiền
   detail: Chi tiết
+  update_profile: "Cập nhật tài khoản"
+  update_info: "Cập nhật thông tin"
+  dishes_list: "Danh sách món ăn"
+  combos_list: "Danh sách combo"
+  restaurant_updated: "Thông tin nhà hàng đã được cập nhật"
+  restaurant_update_fail: "Cập nhật thông tin nhà hàng không thành công"
+  restaurant_name: "Tên nhà hàng"
+  restaurant_addr: "Địa chỉ"
+  restaurant_info: "Thông tin nhà hàng"
+  restaurant_addr: "Địa chỉ"

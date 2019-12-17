@@ -1,4 +1,6 @@
 class Restaurant < ApplicationRecord
+  RESTAURANT_PARAMS = %i(name address phone_number open_time).freeze
+
   belongs_to :user
   has_many :dishes, dependent: :destroy
   has_many :combos, dependent: :destroy
