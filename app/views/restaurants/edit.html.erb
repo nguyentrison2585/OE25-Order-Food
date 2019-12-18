@@ -9,7 +9,8 @@
           <div class="row upload-res-avt">
             <div class="col-8">
               <div class="restaurant-avatar-image">
-                <%= image_tag @restaurant.image, alt: @restaurant.name %>
+                <%= image_tag @restaurant.image, alt: @restaurant.name,
+                  id: "load_res_image" %>
               </div>
             </div>
             <div class="col-4">
@@ -32,7 +33,7 @@
         <div class="user-profile-update">
           <div class="title-user"><%= t "change_info" %></div>
           <div class="row form-group align-items-center">
-            <div class="col-3 txt-bold"><%= t "restaurant_name" %></div>
+            <div class="col-2 txt-bold"><%= t "restaurant_name" %></div>
             <div class="col-4">
               <div class="input-group">
                 <%= f.text_field :name, class: "form-control",
@@ -41,7 +42,7 @@
             </div>
           </div>
           <div class="row form-group align-items-center">
-            <div class="col-3 txt-bold"><%= t "phone_number" %></div>
+            <div class="col-2 txt-bold"><%= t "phone_number" %></div>
             <div class="col-4">
               <div class="input-group">
                 <%= f.text_field :phone_number, class: "form-control",
@@ -50,7 +51,7 @@
             </div>
           </div>
           <div class="row form-group align-items-center">
-            <div class="col-3 txt-bold"><%= t "restaurant_addr" %></div>
+            <div class="col-2 txt-bold"><%= t "restaurant_addr" %></div>
             <div class="col-4">
               <div class="input-group">
                 <%= f.text_area :address, class: "form-control",

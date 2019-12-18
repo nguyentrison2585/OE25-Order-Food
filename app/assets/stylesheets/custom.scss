@@ -574,9 +574,13 @@ button, input, optgroup, select, textarea {
     margin-bottom: 17px;
   }
 
-  .sm-login {
+  .sm-login, .sm-signup {
     color: $white;
     background-color: $blue;
+    margin-top: 30px;
+    &:hover {
+      background-color: $blue-dark;
+    }
   }
 }
 
@@ -588,8 +592,7 @@ button, input, optgroup, select, textarea {
   box-shadow: 0 0 3px $gray-dark;
   width: 320px;
   margin-top: 35px;
-  padding: 5px 16px 0;
-  min-height: 428px;
+  padding: 5px 16px 10px;
 
   .header-profile {
     padding-top: 10px;
@@ -641,7 +644,7 @@ button, input, optgroup, select, textarea {
     }
 
     .fa-shopping-cart:before {
-      content: "\f07a";
+      content: "\f2e6";
     }
 
     .fa-file-alt:before {
@@ -790,11 +793,123 @@ button, input, optgroup, select, textarea {
     height: 1px;
     background-color: $gray-medium-light;
   }
+
+  .dishes-table {
+    font-size: 15px;
+    margin: 30px 13px 20px;
+    text-align: center;
+  }
+
+  .dishes-table-row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    border-bottom: 1px solid $gray-medium-lighter;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .dishes-table-row:last-child {
+    border-bottom: none;
+  }
+
+  .dishes-table-heading {
+    color: $blue;
+  }
+
+  .dishes-table-cell {
+    -ms-flex: 1 1;
+    flex: 1 1;
+    min-height: 0;
+    min-width: 0;
+    width: auto;
+    position: relative;
+    padding: 8px 5px;
+  }
+
+  .dishes-table-col1 {
+    width: 40px;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .dishes-table-col2 {
+    width: 150px;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .dishes-table-col3 {
+    width: 80px;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .dishes-table-col4 {
+    width: 120px;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .dishes-table-col5 {
+    width: 240px;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .dishes-table-col6 {
+    width: 80px;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .dishes-table-col7 {
+    width: 90px;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .delete-dish {
+    color: $red;
+  }
+
+  .delete-dish:hover {
+    color: $red-light;
+    text-decoration: none;
+  }
+
+  .edit-dish-btn {
+    color: $blue;
+    background-color: $white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .edit-dish-btn:hover {
+    color: $blue-dark
+  }
+}
+
+#load_dish_image {
+  width: 120px;
+  height: 120px;
 }
 
 .align-items-center {
   -ms-flex-align: center!important;
   align-items: center!important;
+}
+
+.col-2 {
+  -ms-flex: 0 0 16.66667%;
+  flex: 0 0 16.66667%;
+  max-width: 16.66667%;
 }
 
 .col-3 {
@@ -819,6 +934,12 @@ button, input, optgroup, select, textarea {
   -ms-flex: 0 0 75%;
   flex: 0 0 75%;
   max-width: 75%;
+}
+
+.col-10 {
+  -ms-flex: 0 0 83.33333%;
+  flex: 0 0 83.33333%;
+  max-width: 83.33333%;
 }
 
 .btn-blue-4 {
@@ -851,6 +972,7 @@ button, input, optgroup, select, textarea {
   border: 1px solid $gray-medium-light;
   border-radius: 3px;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  margin-bottom: 10px;
 }
 
 label {
@@ -1785,15 +1907,6 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   border-bottom: 1px solid $light;
 }
 
-.row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -10px;
-  margin-left: -10px;
-}
-
 .txt-bold {
   font-weight: 700!important;
 }
@@ -2074,6 +2187,11 @@ aside {
 .modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
+  background: $matte-black;
+}
+
+.modal-body {
+  margin-top: 30px;
 }
 
 .modal-dialog {
@@ -2173,6 +2291,18 @@ aside {
   width: 600px;
 }
 
+.label-dish {
+  color: $black;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: $gray-medium-lighter;
+  text-transform: capitalize;
+  padding: 3px 18px 4px;
+  border-radius: 3px;
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+
 .modal-header {
   display: -ms-flexbox;
   display: flex;
@@ -2205,6 +2335,30 @@ aside {
   padding: 7px 10px;
   cursor: pointer;
   position: relative;
+}
+
+.dish-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.close-modal-btn {
+  float: left;
+  color: $gray-dark;
+  background-color: $white;
+  border-color: $gray-medium-light;
+}
+
+.update-dish-btn {
+  float: right;
+  color: $white;
+  background-color: $blue-light;
+  border-color: $blue-light;
+  margin-left: 435px;
 }
 
 .icon-arrow-thin {
@@ -2517,18 +2671,18 @@ h1 {
 .history-switch {
   display: -ms-flexbox;
   display: flex;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid $gray-medium-lighter;
 }
 
 .history-switch .active.now {
-  color: #cf2127;
+  color: $red;
 }
 
 .history-switch .active {
   cursor: default;
-  background-color: #fff;
+  background-color: $white;
   margin-bottom: -1px;
-  border: 1px solid #ebebeb;
+  border: 1px solid $gray-medium-lighter;
   border-bottom: 0;
 }
 
@@ -2541,9 +2695,9 @@ h1 {
 }
 
 .history-table-container {
-  background: #fff;
+  background: $white;
   padding: 20px 15px;
-  border: 1px solid #ebebeb;
+  border: 1px solid $gray-medium-lighter;
   border-top: 0;
 }
 
@@ -2686,7 +2840,7 @@ button {
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
   font-size: .75rem;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid $gray-medium-lighter;
   -ms-flex-align: center;
   align-items: center;
 }

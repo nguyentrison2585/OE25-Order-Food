@@ -2,8 +2,8 @@ class OrderDetailsController < ApplicationController
   before_action :load_order, only: :index
 
   def index
-    @order_details = @order.order_details.page(params[:page])
-                           .per Settings.order_page
+    @order_details = @order.order_details
+                           .page(params[:page]).per Settings.order_page
   end
 
   def show; end

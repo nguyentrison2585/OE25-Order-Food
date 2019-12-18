@@ -1,0 +1,132 @@
+<div class="container">
+  <%= render "shared/navigation" %>
+  <div class="now-detail-profile">
+    <div class="header-user-profile"><%= t "dish_list" %></div>
+    <div class="dishes-list">
+      <div class="dishes-table">
+        <div class="dishes-table-row dishes-table-heading">
+          <div class="dishes-table-cell dishes-table-col1"><%= t "num" %></div>
+          <div class="dishes-table-cell dishes-table-col2">
+            <%= t "dish_name" %>
+          </div>
+          <div class="dishes-table-cell dishes-table-col3">
+            <%= t "dish_image" %>
+          </div>
+          <div class="dishes-table-cell dishes-table-col4">
+            <%= t "dish_price" %>
+          </div>
+          <div class="dishes-table-cell dishes-table-col5">
+            <%= t "dish_description" %>
+          </div>
+          <div class="dishes-table-cell dishes-table-col6">
+            <%= t "is_ordered" %>
+          </div>
+          <div class="dishes-table-cell dishes-table-col7">
+            <%= t "action" %>
+          </div>
+        </div>
+        <% @dishes.each_with_index do |dish, n| %>
+          <div class="dishes-table-row dishes-table-item">
+            <div class="dishes-table-cell dishes-table-col1"><%= n+1 %></div>
+            <div class="dishes-table-cell dishes-table-col2">
+              <%= dish.name %></div>
+            <div class="dishes-table-cell dishes-table-col3">
+              <%= image_tag dish.image %>
+            </div>
+            <div class="dishes-table-cell dishes-table-col4">
+              <%= dish.price %> đ</div>
+            <div class="dishes-table-cell dishes-table-col5">
+              <%= dish.description %>
+            </div>
+            <div class="dishes-table-cell dishes-table-col6">
+              <%= dish.orders.size %>
+            </div>
+            <div class="dishes-table-cell dishes-table-col7">
+              <%= link_to t("edit"), edit_dish_path(dish), remote: true %>
+              &nbsp;
+              <%= link_to t("delete"), "", class: "delete-dish" %>
+            </div>
+          </div>
+        <% end %>
+        <%= paginate @dishes %>
+      </div>
+      <div class="dish-form">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="my-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-order-detail">
+      <div class="modal-header">
+        <span class ="close" data-dismiss="modal">
+        <%= image_tag "delete.svg", alt:"delete" %>
+      </span>
+        <%= t "update_dish" %>
+      </div>
+      <%= form_tag "", method: :patch, class: "form-horizontal",
+        multipart: true do %>
+        <input type="hidden" name="res_id" value="<%= @restaurant.id %>">
+        <div class="modal-body">
+          <div class="form-group dish-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "dish_name", t("dish_name") %>
+            </div>
+            <div class="col-8">
+              <%= text_field_tag "dish[name]", nil, class: "form-control",
+                required: true %>
+            </div>
+          </div>
+          <div class="form-group dish-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "dish_price", t("dish_price") %>
+            </div>
+            <div class="col-8">
+              <%= number_field_tag "dish[price]", nil, class: "form-control",
+                min: Settings.min_dish_price, step: Settings.dish_price_step,
+                required: true %>
+            </div>
+          </div>
+          <div class="form-group dish-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "dish_description", t("dish_description") %>
+            </div>
+            <div class="col-8">
+              <%= text_field_tag "dish[description]", nil,
+                class: "form-control", required: true %>
+            </div>
+          </div>
+          <div class="form-group dish-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "dish_image", t("dish_image") %>
+            </div>
+            <div class="col-3">
+              <%= image_tag "", id:"load_dish_image" %>
+            </div>
+            <div class="col-4">
+              <div class="dish-file-image">
+                <%= file_field :dish, :image, hidden: "true", required: "true",
+                  accept: Settings.valid_image_types.join(",") %>
+                <%= label :dish, :image, class: "label-dish" do %>
+                  <%= t "pick" %>
+                <% end %>
+                <span class="font-italic font13">
+                  <%= t "accept_image" %>
+                </span>
+              </div>
+            </div>
+          </div>
+        <div class="modal-footer">
+           <button type="button" class="btn close-modal-btn"
+            data-dismiss="modal">
+            <%= t "close" %>
+          </button>
+          <button type="submit" class="update-dish-btn btn"
+            id="btn-form">
+            <%= t "update" %>
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

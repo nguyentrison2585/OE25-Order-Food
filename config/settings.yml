@@ -10,3 +10,6 @@ max_size_image: 5
 valid_image_types: ["image/jpeg", "image/gif", "image/png"]
 order_page: 5
 time_format: "%H:%M  %d/%m/%Y "
+dish_per_page: 10
+min_dish_price: 5000
+dish_price_step: 1000

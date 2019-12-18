@@ -155,3 +155,21 @@ vi:
   not_found_restaurant: Không tìm thấy nhà hàng
   update_successfully: Cập nhật thành công
   update_not_successfully: Cập nhật không thành công
+  res_not_exist: "Nhà hàng không tồn tại"
+  dish_updated: "Món ăn đã được cập nhật"
+  dish_update_fail: "Cập nhật món ăn không thành công"
+  size_error: "Có %{sum} lỗi"
+  all_order: Tất cả đơn đặt hàng
+  customer_name: Tên khách hàng
+  dish_list: "Danh sách món ăn"
+  num: "STT"
+  dish_name: "Tên món ăn"
+  dish_price: "Giá tiền"
+  dish_description: "Mô tả"
+  dish_image: "Hình ảnh"
+  is_ordered: "Được đặt"
+  action: "Thao tác"
+  close: "Đóng"
+  update_dish: "Cập nhật món ăn"
+  edit: "Sửa"
+  delete: "Xóa"

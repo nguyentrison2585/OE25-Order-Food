@@ -1,2 +1,2 @@
-file: 'public/javascripts/translations.js'
-  only: "*"
+# file: 'public/javascripts/translations.js'
+#   only: "*"

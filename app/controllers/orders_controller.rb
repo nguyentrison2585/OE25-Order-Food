@@ -4,8 +4,8 @@ class OrdersController < ApplicationController
   before_action :is_boss?, only: :show
 
   def index
-    @orders = current_user.orders.by_created_at.page(params[:page])
-                         .per Settings.order_page
+    @orders = current_user.orders.by_created_at
+                          .page(params[:page]).per Settings.order_page
   end
 
   def new
