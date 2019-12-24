@@ -175,3 +175,5 @@ en:
   errors_not_a_number: is not a number
   errors_taken: has already been taken
   invalid_errors: is invalid
+  blank_error: "can't be blank"
+  not_a_number_error: "is not a number"

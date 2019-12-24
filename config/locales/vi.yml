@@ -177,3 +177,5 @@ vi:
   errors_not_a_number: "không phải là số "
   errors_taken: "đã có"
   invalid_errors: "không hợp lệ"
+  blank_error: "không thể để trắng"
+  not_a_number_error: "không phải là số"
