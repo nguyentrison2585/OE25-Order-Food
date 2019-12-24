@@ -25,12 +25,12 @@ RSpec.describe Restaurant, type: :model do
   end
 
   describe "Scopes" do
-    let(:user){FactoryBot.create :user}
-    let!(:r1){FactoryBot.create :restaurant, name: "Piza Mập", user_id: user.id}
-    let!(:r2){FactoryBot.create :restaurant, name: "Piza Còi", user_id: user.id}
+    let!(:user){FactoryBot.create :user}
+    let!(:r1){FactoryBot.create(name: "Pizza Mập", user_id: user.id)}
+    let!(:r2){FactoryBot.create(name: "Pizza Còi", user_id: user.id)}
 
     context "Search" do
-      it {expect(Restaurant.search("Piza")).to eq [r1, r2]}
+      it {expect(Restaurant.search("Pizza")).to eq [r1, r2]}
       it {expect(Restaurant.search("Mập")).to eq [r1]}
       it {expect(Restaurant.search("Còi")).to eq [r2]}
       it {expect(Restaurant.search("Béo")).to eq []}
