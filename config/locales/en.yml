@@ -143,3 +143,13 @@ en:
   count: Count
   amount: Amount
   not_found_order: Not Found Order
+  order_manager: Order Manager
+  all_order: All order of restaurant
+  customer_name: Customer Name
+  action: Action
+  details: Details
+  accept: Accept
+  cancel: Cancel
+  not_found_restaurant: Not Found Restaurant
+  update_successfully: Update successfully
+  update_not_successfully: Update not successfully

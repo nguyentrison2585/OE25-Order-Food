@@ -1,15 +1,18 @@
 5.times do |n|
   email = "sonnt#{n+1}@gmail.com"
-  User.create!(
+  user = User.create!(
     email: email,
     password: "password",
     password_confirmation: "password",
-    role: 2,
+    role: 1,
     name: "Nguyễn Trí Sơn",
     phone_number: "0123456789")
+    user.image.attach(io: File.open(Rails.root
+    .join("app", "assets", "images", "default_avatar.png")),
+    filename: "default_avatar.png")
 end
 
-15.times do |n|
+30.times do |n|
   restaurant = Restaurant.create!(
     name: "Pizza Mập - Pizza Online #{n+1}",
     phone_number: "0123456789",
@@ -19,9 +22,11 @@ end
     user_id: rand(5)+1)
 
   restaurant.image.attach(io: File.open(Rails.root
-    .join("app", "assets", "images", "restaurant-#{n+1}.jpg")),
-    filename: "restaurant-#{n+1}.jpg")
+    .join("app", "assets", "images", "restaurant-#{n%15+1}.jpg")),
+    filename: "restaurant-#{n%15+1}.jpg")
 end
+
+
 
 restaurants = Restaurant.order(:created_at)
 Restaurant.all.each do |r|

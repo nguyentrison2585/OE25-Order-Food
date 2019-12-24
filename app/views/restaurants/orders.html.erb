@@ -17,7 +17,7 @@
     </div>
     <div class="table-cancel-confirm-container">
     </div>
-    <h1 class="block-title mb-4 text-center"><%= t "history_order" %></h1>
+    <h1 class="block-title mb-4 text-center"><%= t "all_order" %></h1>
     <div class="history-switch">
       <div class="item now active"><%= t "welcome" %></div>
     </div>
@@ -42,47 +42,47 @@
           </button>
         </div>
       </div>
-      <div class="history-table">
-        <div class="history-table-row history-table-heading">
-          <div class="history-table-cell history-table-col1"><%= t "number" %></div>
-          <div class="history-table-cell history-table-col2"><%= t "time" %></div>
-          <div class="history-table-cell history-table-col3"><%= t "place" %></div>
-          <div class="history-table-cell history-table-col4"><%= t "total_money" %></div>
-          <div class="history-table-cell history-table-col5"><%= t "status" %></div>
-          <div class="history-table-cell history-table-col6"><%= t "details" %></div>
-          <div class="history-table-cell history-table-col7"><%= t "restaurant" %></div>
-          <div class="history-table-cell history-table-col8"><%= t "action" %></div>
+      <div class="history-table1">
+        <div class="history-table1-row history-table-heading">
+          <div class="history-table1-cell history-table1-col1"><%= t "number" %></div>
+          <div class="history-table1-cell history-table1-col2"><%= t "customer_name" %></div>
+          <div class="history-table1-cell history-table1-col3"><%= t "time" %></div>
+          <div class="history-table1-cell history-table1-col4"><%= t "place" %></div>
+          <div class="history-table1-cell history-table1-col5"><%= t "total_money" %></div>
+          <div class="history-table1-cell history-table1-col6"><%= t "status" %></div>
+          <div class="history-table1-cell history-table1-col7"><%= t "details" %></div>
+          <div class="history-table1-cell history-table1-col8"><%= t "action" %></div>
         </div>
         <% @orders.each_with_index do |order, index| %>
-          <div class="history-table-row ">
-            <div class="history-table-cell history-table-col1">
+          <div class="history-table1-row ">
+            <div class="history-table1-cell history-table1-col1">
               <%= page_index params[:page], index, Settings.order_page %>
             </div>
-            <div class="history-table-cell history-table-col2">
+            <div class="history-table1-cell history-table1-col2">
+              <%= order.user_name %>
+            </div>
+            <div class="history-table1-cell history-table1-col3">
               <%= order.created_at.strftime(Settings.time_format) %>
             </div>
-            <div class="history-table-cell history-table-col3">
+            <div class="history-table1-cell history-table1-col4">
               <%= order.address %>
             </div>
-            <div class="history-table-cell history-table-col4">
+            <div class="history-table1-cell history-table1-col5">
               <%= order.total_money %>
             </div>
-            <div class="history-table-cell history-table-col5" id="order_status_<%= order.id %>">
+            <div class="history-table1-cell history-table1-col6" id="order_status_<%= order.id %>">
               <%= order.status.humanize %>
             </div>
-            <div class="history-table-cell history-table-col6">
+            <div class="history-table1-cell history-table1-col7">
               <%= link_to t("detail"), order_details_path(id: order.id) %>
-            </div>
-            <div class="history-table-cell history-table-col7">
-              <%= order.restaurant_name %>
             </div>
             <div class="history-table1-cell history-table1-col8" id ="render_button_<%= order.id %>">
               <%= render "shared/button", order: order %>
             </div>
           </div>
         <% end %>
-        <%= paginate @orders %>
       </div>
+      <%= paginate @orders %>
     </div>
   </div>
 </div>

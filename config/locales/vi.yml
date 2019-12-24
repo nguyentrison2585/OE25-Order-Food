@@ -113,7 +113,7 @@ vi:
   history_order: Lịch sử đặt hàng
   welcome: Welcome
   status: "Trạng thái"
-  all : Tất cả
+  all: Tất cả
   complete: Đã hoàn thành
   cancel: Đã hủy
   search: Tìm kiếm
@@ -145,3 +145,13 @@ vi:
   count: Số lượng
   amount: Tổng tiền
   not_found_order: Không tìm thấy order
+  order_manager: Quản lí đặt hàng
+  all_order: Tất cả đơn đặt hàng
+  customer_name: Tên khách hàng
+  action: Hành động
+  details: Chi tiết
+  accept: Chấp nhận
+  cancel: Hủy
+  not_found_restaurant: Không tìm thấy nhà hàng
+  update_successfully: Cập nhật thành công
+  update_not_successfully: Cập nhật không thành công

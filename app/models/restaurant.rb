@@ -2,8 +2,12 @@ class Restaurant < ApplicationRecord
   RESTAURANT_PARAMS = %i(name address phone_number open_time).freeze
 
   belongs_to :user
+
   has_many :dishes, dependent: :destroy
+  has_many :order_details, through: :dishes
+  has_many :orders, dependent: :destroy
   has_many :combos, dependent: :destroy
+
   has_one_attached :image
 
   validates :name, presence: true

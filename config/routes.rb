@@ -11,10 +11,13 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     get "/order_details", to: "order_details#index"
-    get "/history_order", to: "orders#index"
 
     resources :users
-    resources :restaurants
-    resources :orders, only: %i(new create show)
+    resources :restaurants do
+      member do
+        get :orders
+      end
+    end
+    resources :orders, except: %i(edit destroy)
   end
 end

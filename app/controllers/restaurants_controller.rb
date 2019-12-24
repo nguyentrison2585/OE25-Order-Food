@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :load_restaurant, only: %i(show edit update)
+  before_action :load_restaurant, only: %i(show edit update orders)
 
   def index
     @restaurants = params[:search_key] ? Restaurant.search(params[:search_key])
@@ -24,6 +24,10 @@ class RestaurantsController < ApplicationController
   end
 
   def new; end
+
+  def orders
+    @orders = @restaurant.orders.page(params[:page]).per Settings.order_page
+  end
 
   private
 

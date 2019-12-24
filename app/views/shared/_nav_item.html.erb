@@ -48,5 +48,18 @@
         </div>
       </div>
     <% end %>
+
+    <%= link_to orders_restaurant_path(restaurant), class: "item-navigation", title: t("all_order"),
+    target: "_self" do %>
+      <div class="row">
+        <div class="col-auto">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <div class="col"><%= t "all_order" %></div>
+        <div class="col-auto">
+          <i class="nav-icon-arrow-thin right"></i>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
