@@ -153,3 +153,21 @@ en:
   not_found_restaurant: Not Found Restaurant
   update_successfully: Update successfully
   update_not_successfully: Update not successfully
+  res_not_exist: "Restraurant don't exist"
+  dish_updated: "Dish updated"
+  dish_update_fail: "Dish update fail"
+  size_error: "Contain %{sum} error"
+  all_order: All order of restaurant
+  customer_name: Customer Name
+  dish_list: "Dishes list"
+  num: "No."
+  dish_name: "Dish name"
+  dish_price: "Dish price"
+  dish_description: "Description"
+  dish_image: "Image"
+  is_ordered: "Is ordered"
+  action: "Action"
+  close: "Close"
+  update_dish: "Update dish"
+  edit: "Edit"
+  delete: "Delete"

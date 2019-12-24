@@ -3,7 +3,7 @@
     target: "_self" do %>
     <div class="row">
       <div class="col-auto">
-        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-utensils-alt"></i>
       </div>
       <div class="col"><%= restaurant.name %></div>
       <div class="col-auto">
@@ -24,8 +24,8 @@
         </div>
       </div>
     <% end %>
-    <%= link_to "", class: "item-navigation", title: t("dishes_list"),
-      target: "_self" do %>
+    <%= link_to dishes_path(res_id: restaurant.id), class: "item-navigation",
+      title: t("dishes_list"), target: "_self" do %>
       <div class="row">
         <div class="col-auto">
           <i class="fas fa-file-alt"></i>

@@ -1,0 +1,6 @@
+$('#my-modal form').attr('action', '<%= dish_url(@dish) %>');
+$('#dish_name').val('<%= @dish.name %>');
+$('#dish_price').val('<%= @dish.price %>');
+$('#dish_description').val('<%= @dish.description %>');
+$('#load_dish_image').attr('src', '<%= url_for(@dish.image) %>');
+$('#my-modal').modal('show');
