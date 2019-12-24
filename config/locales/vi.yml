@@ -173,3 +173,7 @@ vi:
   update_dish: "Cập nhật món ăn"
   edit: "Sửa"
   delete: "Xóa"
+  errors_blank: "không thể để trắng"
+  errors_not_a_number: "không phải là số "
+  errors_taken: "đã có"
+  invalid_errors: "không hợp lệ"

@@ -171,3 +171,7 @@ en:
   update_dish: "Update dish"
   edit: "Edit"
   delete: "Delete"
+  errors_blank: can't be blank
+  errors_not_a_number: is not a number
+  errors_taken: has already been taken
+  invalid_errors: is invalid
