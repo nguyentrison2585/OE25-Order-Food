@@ -36,8 +36,15 @@ end
 
 group :test do
   gem "capybara", ">= 2.15"
+  gem "database_cleaner"
   gem "selenium-webdriver"
   gem "webdrivers"
+end
+
+group :development, :test do
+  gem "factory_bot_rails"
+  gem "rspec-rails", "~> 3.7"
+  gem "shoulda-matchers"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
