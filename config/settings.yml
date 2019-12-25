@@ -13,9 +13,12 @@ time_format: "%H:%M  %d/%m/%Y "
 dish_per_page: 10
 min_dish_price: 5000
 dish_price_step: 1000
+default_password: "888888"
 factories:
-  user:
+  users:
     role_fake: 1
     name_max_length_invalid: 51
     password_min_length_invalid: 5
-default_password: "888888"
+  restaurants:
+    open_time_fake: "8:00 - 22:00"
+    discount_fake: 10
