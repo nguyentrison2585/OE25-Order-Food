@@ -24,3 +24,5 @@ factories:
     discount_fake: 10
   dishes:
     dish_price_fake: 1000000
+  orders:
+    status: "pending"

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :load_user, only: %i(show update)
-
+  before_action :require_logged_in, only: %i(update show)
+  
   def show; end
 
   def new

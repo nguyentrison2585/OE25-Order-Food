@@ -2,7 +2,8 @@ FactoryBot.define do
   factory :user do
     name {Faker::Name.name}
     email {Faker::Internet.email}
-    password_digest {BCrypt::Password.create(Settings.default_password)}
+    password {Settings.default_password}
+    password_confirmation {Settings.default_password}
     role {Settings.factories.users.role_fake}
     phone_number {Faker::PhoneNumber.cell_phone}
     after(:build) do |user|

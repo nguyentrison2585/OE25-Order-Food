@@ -45,8 +45,12 @@ group :test do
   gem "rspec-rails", git: "https://github.com/rspec/rspec-rails"
   gem "rspec-support", git: "https://github.com/rspec/rspec-support"
   gem "selenium-webdriver"
-  gem "shoulda-matchers"
+  gem "shoulda-callback-matchers"
   gem "webdrivers"
+end
+
+group :development, :test do
+  gem "shoulda-matchers"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
