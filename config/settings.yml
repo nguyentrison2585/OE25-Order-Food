@@ -22,3 +22,5 @@ factories:
   restaurants:
     open_time_fake: "8:00 - 22:00"
     discount_fake: 10
+  dishes:
+    dish_price_fake: 1000000
