@@ -22,26 +22,7 @@
       <div class="item now active"><%= t "welcome" %></div>
     </div>
     <div class="history-table-container">
-      <div class="filter-table">
-        <div class="filter-table-item ">
-          <div class="text-nowrap">
-            <span class="filter-table-label"><%= t "status" %></span>
-            <select name="" class="form-control filter-table-input">
-              <option value="" selected=""><%= t "all" %></option>
-              <option value=""><%= t "complete" %></option>
-              <option value=""><%= t "cancel" %></option>
-            </select>
-          </div>
-        </div>
-        <div class="filter-table-item">
-        </div>
-        <div class="filter-table-item">
-        </div>
-        <div class="filter-table-item">
-          <button type="button" class="btn btn-sm"><%= t "search" %>
-          </button>
-        </div>
-      </div>
+      <%= render("shared/search_order_of_user") %> 
       <div class="history-table">
         <div class="history-table-row history-table-heading">
           <div class="history-table-cell history-table-col1"><%= t "number" %></div>

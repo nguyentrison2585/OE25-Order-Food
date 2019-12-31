@@ -1,12 +1,12 @@
 <% if order.pending? %>
   <% if current_user.boss? %>
-    <%= form_tag order_path(order), method: :patch, remote: true do %>
+    <%= form_tag order_path(order, res_id: @restaurant.id), method: :patch, remote: true do %>
      <%= hidden_field_tag "status", Order.statuses[:accepted] %>
       <button type="submit" class="btn btn-none-bg btn-login">
         <%= t "accept" %>
       </button>
     <% end %>
-    <%= form_tag order_path(order), method: :patch, remote: true do %>
+    <%= form_tag order_path(order, res_id: @restaurant.id), method: :patch, remote: true do %>
       <%= hidden_field_tag "status", Order.statuses[:cancel] %>
       <button type="submit" class="btn btn-none-bg btn-login">
         <%= t "cancel" %>

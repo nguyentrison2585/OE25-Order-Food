@@ -2,15 +2,15 @@ class RestaurantsController < ApplicationController
   before_action :load_restaurant, only: %i(show edit update orders)
 
   def index
-    @restaurants = params[:search_key] ? Restaurant.search(params[:search_key])
-      : Restaurant
-    @restaurants = @restaurants.with_attached_image.page(params[:page])
-                               .per Settings.res_per_page
-    flash.now[:danger] = t("not_found") if @restaurants.blank?
+    @q = Restaurant.ransack(params[:q])
+    @restaurants = @q.result(distinct: true)
+                     .page(params[:page]).per Settings.res_per_page
   end
 
   def show
-    @dishes = @restaurant.dishes
+    @q = @restaurant.dishes.ransack(params[:q])
+    @dishes = @q.result(distinct: true)
+                .page(params[:page]).per Settings.res_per_page
   end
 
   def edit; end
@@ -37,7 +37,9 @@ class RestaurantsController < ApplicationController
   end
 
   def orders
-    @orders = @restaurant.orders.page(params[:page]).per Settings.order_page
+    @order = @restaurant.orders.search(params[:q])
+    @orders = @order.result(distinct: true)
+                    .page(params[:page]).per Settings.order_page
   end
 
   private

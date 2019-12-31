@@ -87,13 +87,7 @@
             </div>
           </div>
           <div class="menu-restaurant-list">
-            <div class="search-items">
-              <p class="input-group">
-                <i class="fas fa-search"></i>
-                <input type="search" name="searchKey"
-                placeholder="<%= t "search_dish" %>" value="">
-              </p>
-            </div>
+            <%= render "shared/search_item_form" %>
             <div id="restaurant-item">
               <div aria-label="grid" aria-readonly="true" class="food_list"
                 role="grid" tabindex="0">
