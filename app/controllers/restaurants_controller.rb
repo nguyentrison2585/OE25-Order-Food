@@ -4,7 +4,8 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = params[:search_key] ? Restaurant.search(params[:search_key])
       : Restaurant
-    @restaurants = @restaurants.page(params[:page]).per Settings.res_per_page
+    @restaurants = @restaurants.with_attached_image.page(params[:page])
+                               .per Settings.res_per_page
   end
 
   def show

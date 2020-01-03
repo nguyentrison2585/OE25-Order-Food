@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :confirmable
+
   has_many :comments, dependent: :destroy
   has_many :rates, dependent: :destroy
   has_many :orders, dependent: :destroy
@@ -16,20 +19,8 @@ class User < ApplicationRecord
                        allow_nil: true
   validates :phone_number, presence: true
 
-  USER_PARAMS = %i(name email phone_number password password_confirmation)
+  USER_PARAMS = %i(name email phone_number current_password password password_confirmation)
                 .freeze
 
   enum role: {admin: 0, boss: 1, normal: 2}
-  has_secure_password
-
-  class << self
-    def digest string
-      cost = if ActiveModel::SecurePassword.min_cost
-               BCrypt::Engine::MIN_COST
-             else
-               BCrypt::Engine.cost
-             end
-      BCrypt::Password.create(string, cost: cost)
-    end
-  end
 end

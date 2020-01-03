@@ -13,20 +13,44 @@
           <%= link_to t("restaurant"), root_url, class:"nav-item active" %>
         </div>
         <div class="user-acc col-auto">
-          <% if logged_in? %>
-            <div class="dropdown">
-              <button class="dropbtn btn btn-none-bg" id="dropbtn">
-                <%= current_user.name %>
-              </button>
-              <div id="myDropdown" class="dropdown-content">
-                <%= link_to t("order_history"), orders_path, target: "_self" %>
-                <%= link_to t("update_account"), current_user, target: "_self" %>
-                <%= link_to t("log_out"), logout_path, target: "_self",
-                  method: :delete %>
+          <% if user_signed_in? %>
+            <div class="dropdown" id="dropdiv">
+              <div class="dropdown-toggle" role="button" id="user-dropdown"
+                data-toggle="dropdown">
+                <div class="img">
+                  <%= image_tag current_user.image %>
+                </div>
+                <span class="name">
+                  <%= current_user.name %>
+                </span>
+              </div>
+              <div class="dropdown-menu" id="drop-menu"
+                aria-labelledby="user-dropdown">
+                <%= link_to orders_path, target: "_self" do %>
+                  <div class="dropdown-item">
+                    <span class="text">
+                      <%= t("order_history") %>
+                    </span>
+                  </div>
+                <% end %>
+                <%= link_to profile_path, target: "_self" do %>
+                  <div class="dropdown-item">
+                    <span class="text">
+                      <%= t("update_account") %>
+                    </span>
+                  </div>
+                <% end %>
+                <%= link_to signout_path, target: "_self", method: :delete do %>
+                  <div class="dropdown-item">
+                    <span class="text">
+                      <%= t("log_out") %>
+                    </span>
+                  </div>
+                <% end %>
               </div>
             </div>
           <% else %>
-            <%= link_to login_path do %>
+            <%= link_to signin_path do %>
               <button type="button" class="btn btn-none-bg btn-login">
                 <%= t("log_in") %>
               </button>

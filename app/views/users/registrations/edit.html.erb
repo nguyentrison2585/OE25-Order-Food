@@ -1,3 +1,4 @@
+<% provide :title, @user.name %>
 <div class="container">
   <%= render "shared/navigation" %>
   <div class="now-detail-profile">
@@ -35,14 +36,16 @@
         </div>
       </div>
       <div class="user-profile-update">
-        <%= form_for @user do |f| %>
+        <%= form_for @user, as: :user, url: profile_path,
+          html: {method: :put} do |f| %>
           <div class="title-user"><%= t "change_info" %></div>
+          <%= devise_error_messages! %>
           <div class="row form-group align-items-center">
             <div class="col-2 txt-bold"><%= t "name" %></div>
             <div class="col-4">
               <div class="input-group">
                 <%= f.text_field :name, class: "form-control",
-                  placeholder: t("name") %>
+                  placeholder: t("name"), required: true %>
               </div>
             </div>
           </div>
@@ -51,24 +54,33 @@
             <div class="col-4">
               <div class="input-group">
                 <%= f.text_field :phone_number, class: "form-control",
-                  placeholder: t("phone_number") %>
+                  placeholder: t("phone_number"), required: true %>
               </div>
             </div>
           </div>
           <div class="row form-group align-items-center">
             <div class="col-2 txt-bold"><%= t "email" %></div>
-            <div class="col-8">
+            <div class="col-4">
               <div class="input-group">
                 <div class="show-email"><%= @user.email %></div>
               </div>
             </div>
           </div>
           <div class="row form-group align-items-center">
-            <div class="col-2 txt-bold"><%= t "password" %></div>
+            <div class="col-2 txt-bold"><%= t "current_password" %></div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.password_field :current_password, class: "form-control",
+                  placeholder: t("current_password") %>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold"><%= t "new_password" %></div>
             <div class="col-4">
               <div class="input-group">
                 <%= f.password_field :password, class: "form-control",
-                  placeholder: t("password") %>
+                  placeholder: t("new_password") %>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-35.times do |n|
+30.times do |n|
   email = "sonnt#{n+1}@gmail.com"
   user = User.create!(
     email: email,
@@ -6,6 +6,7 @@
     password_confirmation: "password",
     role: 1,
     name: "Nguyễn Trí Sơn",
+    confirmed_at: Time.now,
     phone_number: "0123456789")
     user.image.attach(io: File.open(Rails.root
     .join("app", "assets", "images", "default_avatar.png")),
@@ -19,7 +20,8 @@ end
     password: "password",
     password_confirmation: "password",
     role: 2,
-    name: "Nguyễn Trí Sơn",
+    name: "Mai Khánh Linh",
+    confirmed_at: Time.now,
     phone_number: "0123456789")
     user.image.attach(io: File.open(Rails.root
     .join("app", "assets", "images", "default_avatar.png")),
@@ -33,11 +35,11 @@ end
     address: "150 Lạc Nghiệp, Quận Hai Bà Trưng, Hà Nội",
     open_time: "8:00 - 22:00",
     discount: 15,
-    user_id: rand(5)+1)
+    user_id: n%30+1)
 
   restaurant.image.attach(io: File.open(Rails.root
-    .join("app", "assets", "images", "restaurant-#{n%15+1}.jpg")),
-    filename: "restaurant-#{n%15+1}.jpg")
+    .join("app", "assets", "images", "restaurant-#{n%20+1}.jpg")),
+    filename: "restaurant-#{n%20+1}.jpg")
 end
 
 restaurants = Restaurant.order(:created_at)

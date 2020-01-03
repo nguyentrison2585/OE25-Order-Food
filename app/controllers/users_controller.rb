@@ -3,33 +3,9 @@ class UsersController < ApplicationController
 
   def show; end
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    if @user.save
-      @user.image.attach(io: File.open(Rails.root
-        .join("app", "assets", "images", "default_avatar.png")),
-        filename: "default_avatar.png")
-      log_in @user
-      flash.now[:success] = t "sign_up_successful"
-      redirect_to root_url
-    else
-      flash.now[:warning] = t "fail_sign_up"
-      render :new
-    end
-  end
-
   def update
-    if @user.update user_params
-      flash[:success] = t "user_updated"
-    else
-      flash[:danger] = t "user_update_fail"
-    end
     @user.image.attach params[:user][:image] if params[:user][:image]
-    redirect_to @user
+    redirect_to profile_path
   end
 
   private

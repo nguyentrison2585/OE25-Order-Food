@@ -1,15 +1,15 @@
 $(document).ready(function() {
-  $(document).on('click', '#dropbtn', function(){
+  $('#dropdiv').on('click', function(){
     dropdown();
   });
 
   function dropdown() {
-    $('#myDropdown').toggleClass('show');
+    $('#drop-menu').toggleClass('show');
   }
 
   window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = $('.dropdown-content');
+    if (!event.target.matches('.dropdiv')) {
+      var dropdowns = $('.dropdown-menu');
       for (let i = 0; i < dropdowns.length; i++) {
         var openDropdown = $(dropdowns[i]);
         openDropdown.removeClass('show');
@@ -179,11 +179,11 @@ $(document).ready(function() {
 
         sessionStorage['order-id-' + sessionStorage['storage-lenght']] = $(btn).attr('data-id');
         sessionStorage['order-name-' + sessionStorage['storage-lenght']] =
-          billDishNames[sessionStorage['storage-lenght']].textContent;
+        billDishNames[sessionStorage['storage-lenght']].textContent;
         sessionStorage['order-number-' + sessionStorage['storage-lenght']] =
-          parseInt(orderNumbers[sessionStorage['storage-lenght']].textContent);
+        parseInt(orderNumbers[sessionStorage['storage-lenght']].textContent);
         sessionStorage['order-price-' + sessionStorage['storage-lenght']] =
-          parseInt(billDishPrices[sessionStorage['storage-lenght']].textContent);
+        parseInt(billDishPrices[sessionStorage['storage-lenght']].textContent);
         sessionStorage['total-amount'] = parseInt(totalAmounts[0].textContent);
         sessionStorage['storage-lenght']++;
       }
@@ -275,7 +275,7 @@ $(document).ready(function() {
 
     function plusItem(button) {
       var dishName = button.parentNode.getElementsByClassName('name-order')[0].
-        textContent;
+      textContent;
 
       var i;
       for (i = 0;i < dishNames.length; i++) {
@@ -334,11 +334,11 @@ $(document).ready(function() {
           decreaseTotal(i)
           for (let index = j;index < sessionStorage['storage-lenght'];index++) {
             sessionStorage['order-name-' + index] =
-              sessionStorage['order-name-' + (index+1)];
+            sessionStorage['order-name-' + (index+1)];
             sessionStorage['order-number-' + index] =
-              sessionStorage['order-number-' + (index+1)];
+            sessionStorage['order-number-' + (index+1)];
             sessionStorage['order-price-' + index] =
-              sessionStorage['order-price-' + (index+1)];
+            sessionStorage['order-price-' + (index+1)];
             sessionStorage['total-amount'] = parseInt(totalAmounts[0].
               textContent);
           }
