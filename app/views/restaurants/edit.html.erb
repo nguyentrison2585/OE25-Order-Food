@@ -1,11 +1,11 @@
 <div class="container">
-  <%= render "shared/navigation" %>
+  <%= render "shared/res_navigation" %>
   <div class="now-detail-profile">
     <div class="header-user-profile"><%= t "restaurant_info" %></div>
     <div class="content-user-profile">
       <%= form_for @restaurant do |f| %>
         <div class="user-profile-update">
-          <div class="title-user"><%= t "upload_avatar" %></div>
+          <div class="title-user"><%= t "upload_res_avatar" %></div>
           <div class="row upload-res-avt">
             <div class="col-8">
               <div class="restaurant-avatar-image">
@@ -51,11 +51,11 @@
             </div>
           </div>
           <div class="row form-group align-items-center">
-            <div class="col-2 txt-bold"><%= t "restaurant_addr" %></div>
+            <div class="col-2 txt-bold"><%= t "restaurant_address" %></div>
             <div class="col-4">
               <div class="input-group">
                 <%= f.text_area :address, class: "form-control",
-                  placeholder: t("restaurant_addr") %>
+                  placeholder: t("restaurant_address") %>
               </div>
             </div>
           </div>

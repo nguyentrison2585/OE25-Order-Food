@@ -1,4 +1,5 @@
 @import 'color.scss';
+
 /*@import 'bootstrap-sprockets';
 @import 'bootstrap';*/
 
@@ -196,7 +197,7 @@ a {
     }
 
     .dropdown-toggle:after {
-      border: solid $gray-medium-light;
+      border: solid $gray;
       border-width: 0 2px 2px 0;
       display: inline-block;
       padding: 2px;
@@ -789,12 +790,19 @@ button, input, optgroup, select, textarea {
 }
 
 /* user profile */
+.left {
+  float: left;
+}
+
+.user-nav {
+  float: left;
+}
+
 .now-navigation-profile {
   background-color: $white;
   border-radius: 4px;
-  float: left;
   box-shadow: 0 0 3px $gray-dark;
-  width: 320px;
+  width: 280px;
   margin-top: 35px;
   padding: 5px 16px 10px;
 
@@ -820,17 +828,8 @@ button, input, optgroup, select, textarea {
     cursor: default;
   }
 
-  .item-navigation.active {
-    color: $red;
-  }
-
-  .item-navigation:hover .sub-navigation {display: block;}
-
-  .item-navigation:last-child {
-    border: 0;
-  }
-
-  .item-navigation {
+  .item-navigation, .sub-item-navigation{
+    cursor: pointer;
     font-size: 13px;
     text-transform: none;
     color: $gray-dark;
@@ -845,30 +844,14 @@ button, input, optgroup, select, textarea {
       text-align: center;
     }
 
-    .fa-user:before {
-      content: "\f007";
-    }
-
-    .fa-shopping-cart:before {
-      content: "\f2e6";
-    }
-
-    .fa-file-alt:before {
-      content: "\f15c";
-    }
-
-    .fa-map-marker-alt:before {
-      content: "\f3c5";
-    }
-
-    .nav-icon-arrow-thin {
+    .nav-icon-arrow-thin, .sub-nav-icon-arrow-thin {
       border: solid $darker;
       border-width: 0 2px 2px 0;
       display: inline-block;
       padding: 3px;
     }
 
-    .nav-icon-arrow-thin.right {
+    .nav-icon-arrow-thin.right, .sub-nav-icon-arrow-thin.right {
       transform: rotate(-45deg);
     }
 
@@ -877,7 +860,7 @@ button, input, optgroup, select, textarea {
       -webkit-transform: rotate(45deg);
     }
 
-    .nav-icon-arrow-thin {
+    .nav-icon-arrow-thin, .sub-nav-icon-arrow-thin{
       border-width: 0 1px 1px 0;
       margin-right: 5px;
     }
@@ -890,11 +873,11 @@ button, input, optgroup, select, textarea {
     }
   }
 
-  .item-navigation:last-child {
+  .item-navigation:last-child .sub-item-navigation:last-child{
     border: 0;
   }
 
-  .item-navigation:last-child:after {
+  .item-navigation:last-child:after, .sub-item-navigation:last-child:after {
     content: "";
     position: absolute;
     top: -1px;
@@ -910,21 +893,70 @@ button, input, optgroup, select, textarea {
     margin-left: 30px;
     margin-bottom: -10px;
     display: none;
-    .item-navigation:last-child:after {
+
+    .sub-item-navigation:last-child:after {
       width: 0;
+    }
+  }
+
+  .show {display: block;}
+}
+
+.now-navigation-profile {
+  a.item-navigation:hover .nav-icon-arrow-thin,
+  .item-navigation.active .nav-icon-arrow-thin,
+  .item-navigation :hover .nav-icon-arrow-thin,
+  .sub-navigation .sub-item-navigation:hover
+  .sub-nav-icon-arrow-thin,
+  .sub-navigation .sub-item-navigation:hover .fas,
+  .sub-navigation .sub-item-navigation.active .sub-nav-icon-arrow-thin {
+    color: $red;
+    border-color: $red;
+  }
+}
+
+.now-navigation-profile {
+  .item-navigation {
+    &.active, &:hover {
+      color: $red;
     }
   }
 }
 
-.now-navigation-profile .sub-navigation .item-navigation.active .nav-icon-arrow-thin,
-.now-navigation-profile .sub-navigation .item-navigation:hover .nav-icon-arrow-thin,
-.now-navigation-profile .item-navigation:hover .nav-icon-arrow-thin {
-  border-color: $red;
+.now-navigation-profile .sub-navigation .sub-item-navigation.active {
+  .col, .fas {
+    color: $red;
+  }
+}
+
+.create-restaurant {
+  text-align: center;
+  padding: 20px;
+  .new-res-btn {
+    color: $white;
+    background-color: $green;
+    border-color: $green-dark;
+    font-size: 16px;
+
+    &:hover {
+      background-color: $green-dark;
+    }
+  }
+}
+
+.create-res-btn {
+  color: $white;
+  background-color: $green;
+  border-color: $green-dark;
+  float: right;
+  &:hover {
+    background-color: $green-dark;
+  }
 }
 
 .now-detail-profile {
   float: right;
-  width: 827px;
+  width: 870px;
   min-height: 428px;
   position: relative;
   background-color: $white;
@@ -1035,19 +1067,19 @@ button, input, optgroup, select, textarea {
   }
 
   .dishes-table-col1 {
-    width: 40px;
+    width: 5%;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
   }
 
   .dishes-table-col2 {
-    width: 150px;
+    width: 20%;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
   }
 
   .dishes-table-col3 {
-    width: 80px;
+    width: 10%;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
 
@@ -1058,25 +1090,25 @@ button, input, optgroup, select, textarea {
   }
 
   .dishes-table-col4 {
-    width: 120px;
+    width: 15%;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
   }
 
   .dishes-table-col5 {
-    width: 240px;
+    width: 30%;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
   }
 
   .dishes-table-col6 {
-    width: 80px;
+    width: 10%;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
   }
 
   .dishes-table-col7 {
-    width: 90px;
+    width: 10%;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
   }
@@ -1276,7 +1308,6 @@ img {
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   padding-top: 12px;
   display: block;
-  text-align: center;
 }
 
 .rating {
@@ -2490,11 +2521,15 @@ aside {
 }
 
 .modal-order-detail {
-  font-size: 13px;
+  font-size: 14px;
 }
 
-.modal-content.edit-info-order, .modal-content.modal-get-local, .modal-content.modal-order-detail {
+.modal-content.modal-order-detail {
   width: 600px;
+}
+
+.modal-content.modal-create-restaurant {
+  width: 700px;
 }
 
 .label-dish {
@@ -2509,28 +2544,18 @@ aside {
   margin-right: 10px;
 }
 
-.modal-header {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 10px 15px;
-  border-bottom: 1px solid $gray-medium-light;
-  border-top-left-radius: .3rem;
-  border-top-right-radius: .3rem;
-}
 
-.modal-order-detail .modal-header {
-  font-size: 16px;
-  font-weight: 700;
-  background-color: $light;
-  color: $black;
-  padding: 7px 10px;
-  position: relative;
-  border: 0;
-  border-radius: 5px 5px 0 0;
+.modal-order-detail, .modal-create-restaurant {
+  .modal-header {
+    font-size: 16px;
+    font-weight: 700;
+    background-color: $light;
+    color: $black;
+    padding: 7px 10px;
+    position: relative;
+    border: 0;
+    border-radius: 5px 5px 0 0;
+  }
 }
 
 .title-popup-order {
@@ -2543,13 +2568,18 @@ aside {
   position: relative;
 }
 
-.dish-row {
+.dish-row, .restaurant-row {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-right: 10px;
   margin-left: 10px;
+}
+
+#load_create_res_image {
+  width: 420px;
+  height: 260px;
 }
 
 .close-modal-btn {
@@ -2564,7 +2594,6 @@ aside {
   color: $white;
   background-color: $blue-light;
   border-color: $blue-light;
-  margin-left: 435px;
 }
 
 .icon-arrow-thin {
@@ -2727,8 +2756,7 @@ fa-question-circle {
 }
 
 .modal-footer {
-  display: -ms-flexbox;
-  display: flex;
+  display: flow-root;
   -ms-flex-align: center;
   align-items: center;
   padding: 10px 15px;

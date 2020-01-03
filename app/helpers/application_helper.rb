@@ -8,4 +8,8 @@ module ApplicationHelper
     params_page ||= 1
     (params_page.to_i - 1) * per_page + index + 1
   end
+
+  def correct_restaurant? restaurant
+    @restaurant&.id == restaurant.id
+  end
 end

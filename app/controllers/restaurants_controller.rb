@@ -25,7 +25,16 @@ class RestaurantsController < ApplicationController
     redirect_to edit_restaurant_url
   end
 
-  def new; end
+  def new
+    @new_restaurant = current_user.restaurants.build
+    respond_to :js
+  end
+
+  def create
+    @new_restaurant = current_user.restaurants.build new_restaurant_params
+    attach_image
+    save_restaurant
+  end
 
   def orders
     @orders = @restaurant.orders.page(params[:page]).per Settings.order_page
@@ -43,6 +52,26 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit Restaurant::RESTAURANT_PARAMS
+  end
+
+  def new_restaurant_params
+    params.require(:new_restaurant).permit Restaurant::RESTAURANT_PARAMS
+  end
+
+  def save_restaurant
+    if @new_restaurant.save
+      flash[:success] = t "restaurant_created"
+      redirect_to edit_restaurant_url @new_restaurant
+    else
+      flash[:danger] = t "restaurant_create_fail"
+      redirect_to root_url
+    end
+  end
+
+  def attach_new_image
+    return unless params.dig(:new_restaurant, :image)
+
+    @new_restaurant.image.attach params[:new_restaurant][:image]
   end
 
   def attach_image

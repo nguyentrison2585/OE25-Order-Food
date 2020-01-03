@@ -1,5 +1,5 @@
 <div class="container">
-  <%= render "shared/navigation" %>
+  <%= render "shared/res_navigation" %>
   <div class="now-detail-profile">
     <div class="header-user-profile"><%= t "dish_list" %></div>
     <div class="dishes-list">
@@ -105,7 +105,7 @@
             </div>
             <div class="col-4">
               <div class="dish-file-image">
-                <%= file_field :dish, :image, hidden: "true", required: "true",
+                <%= file_field :dish, :image, hidden: "true",
                   accept: Settings.valid_image_types.join(",") %>
                 <%= label :dish, :image, class: "label-dish" do %>
                   <%= t "pick" %>
@@ -116,6 +116,7 @@
               </div>
             </div>
           </div>
+        </div>
         <div class="modal-footer">
            <button type="button" class="btn close-modal-btn"
             data-dismiss="modal">

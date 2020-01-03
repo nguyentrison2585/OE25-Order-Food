@@ -1,63 +1,69 @@
-<div class="item-navigation">
-  <%= link_to edit_restaurant_path(restaurant), title: restaurant.name,
-    target: "_self" do %>
-    <div class="row">
-      <div class="col-auto">
-        <i class="fas fa-utensils-alt"></i>
-      </div>
-      <div class="col"><%= restaurant.name %></div>
-      <div class="col-auto">
-        <i class="nav-icon-arrow-thin down"></i>
-      </div>
+<div class="item-navigation <%= active_navigation restaurant %>">
+  <div class="row">
+    <div class="col-auto">
+      <i class="fas fa-utensils"></i>
     </div>
-  <% end %>
-  <div class="sub-navigation">
-    <%= link_to edit_restaurant_path(restaurant), class: "item-navigation",
-      title: t("update_info"), target: "_self" do %>
-      <div class="row">
-        <div class="col-auto">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <div class="col"><%= t "update_info" %></div>
-        <div class="col-auto">
-          <i class="nav-icon-arrow-thin right"></i>
-        </div>
-      </div>
-    <% end %>
-    <%= link_to dishes_path(res_id: restaurant.id), class: "item-navigation",
-      title: t("dishes_list"), target: "_self" do %>
-      <div class="row">
-        <div class="col-auto">
-          <i class="fas fa-file-alt"></i>
-        </div>
-        <div class="col"><%= t"dishes_list" %></div>
-        <div class="col-auto">
-          <i class="nav-icon-arrow-thin right"></i>
-        </div>
-      </div>
-    <% end %>
-    <%= link_to "", class: "item-navigation", title: t("combos_list"),
+    <div class="col" title="<%= restaurant.name %>">
+      <%= restaurant.name %>
+    </div>
+    <div class="col-auto">
+      <i class="nav-icon-arrow-thin down"></i>
+    </div>
+  </div>
+  <div class="sub-navigation <%= show_sub_navigation restaurant %>">
+    <%= link_to edit_restaurant_path(restaurant), title: t("update_info"),
       target: "_self" do %>
-      <div class="row">
-        <div class="col-auto">
-          <i class="fas fa-file-alt"></i>
-        </div>
-        <div class="col"><%= t "combos_list" %></div>
-        <div class="col-auto">
-          <i class="nav-icon-arrow-thin right"></i>
+      <div class="sub-item-navigation
+        <%= active_update_restaurant restaurant %>">
+        <div class="row">
+          <div class="col-auto">
+            <i class="fas fa-info"></i>
+          </div>
+          <div class="col"><%= t "update_info" %></div>
+          <div class="col-auto">
+            <i class="sub-nav-icon-arrow-thin right"></i>
+          </div>
         </div>
       </div>
     <% end %>
-
-    <%= link_to orders_restaurant_path(restaurant), class: "item-navigation", title: t("all_order"),
-    target: "_self" do %>
-      <div class="row">
-        <div class="col-auto">
-          <i class="fas fa-file-alt"></i>
+    <%= link_to dishes_path(res_id: restaurant.id), title: t("dishes_list"),
+      target: "_self" do %>
+      <div class="sub-item-navigation <%= active_dishes_list restaurant %>">
+        <div class="row">
+          <div class="col-auto">
+            <i class="fas fa-pizza-slice"></i>
+          </div>
+          <div class="col"><%= t"dishes_list" %></div>
+          <div class="col-auto">
+            <i class="sub-nav-icon-arrow-thin right"></i>
+          </div>
         </div>
-        <div class="col"><%= t "all_order" %></div>
-        <div class="col-auto">
-          <i class="nav-icon-arrow-thin right"></i>
+      </div>
+    <% end %>
+    <%= link_to "", title: t("combos_list"), target: "_self" do %>
+      <div class="sub-item-navigation">
+        <div class="row">
+          <div class="col-auto">
+            <i class="fas fa-hamburger"></i>
+          </div>
+          <div class="col"><%= t "combos_list" %></div>
+          <div class="col-auto">
+            <i class="sub-nav-icon-arrow-thin right"></i>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to orders_restaurant_path(restaurant), title: t("all_order"),
+      target: "_self" do %>
+      <div class="sub-item-navigation <%= active_orders_list restaurant %>">
+        <div class="row">
+          <div class="col-auto">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <div class="col"><%= t "all_order" %></div>
+          <div class="col-auto">
+            <i class="sub-nav-icon-arrow-thin right"></i>
+          </div>
         </div>
       </div>
     <% end %>

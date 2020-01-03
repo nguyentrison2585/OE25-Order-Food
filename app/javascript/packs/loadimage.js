@@ -29,4 +29,14 @@ $(document).ready(function(){
       reader.readAsDataURL(this.files[0]);
     });
   }
+  if ($('#new_restaurant_image').length > 0) {
+    $('#new_restaurant_image').on('change', function() {
+      var reader = new FileReader();
+
+      reader.onloadend = function() {
+        $('#load_create_res_image').prop('src', reader.result)
+      }
+      reader.readAsDataURL(this.files[0]);
+    });
+  }
 });

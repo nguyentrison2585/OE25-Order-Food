@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-  RESTAURANT_PARAMS = %i(name address phone_number open_time).freeze
+  RESTAURANT_PARAMS = %i(name address phone_number open_time image).freeze
 
   belongs_to :user
 

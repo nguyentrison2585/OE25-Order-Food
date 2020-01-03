@@ -23,8 +23,6 @@ vi:
   certificate_third_line: "sửa đổi lần thứ 1, ngày 31/12/2019"
   telephone: "Số điện thoại: 19001000"
   our_email: "Email: linhjava98@gmail.com"
-  restaurant_name: "Quạc Kí - Bún & Miến Ngan"
-  restaurant_address: "150 Lạc Nghiệp, Quận Hai Bà Trưng, Hà Nội"
   sale_all: "Giảm hết %{percent}%"
   search_res: "Tìm nhà hàng"
   search_dish: "Tìm món ăn"
@@ -101,6 +99,7 @@ vi:
   address: "Địa chỉ:"
   user_info: "Thông tin người dùng"
   upload_avatar: "Tải ảnh đại diện"
+  upload_res_avatar: "Tải ảnh đại diện cho nhà hàng của bạn"
   upload_from: "Tải lên từ"
   pick: "Chọn"
   accept_image: "Chấp nhận GIF, JPEG, PNG với kích thước tối đa 5.0 MB"
@@ -131,9 +130,8 @@ vi:
   restaurant_updated: "Thông tin nhà hàng đã được cập nhật"
   restaurant_update_fail: "Cập nhật thông tin nhà hàng không thành công"
   restaurant_name: "Tên nhà hàng"
-  restaurant_addr: "Địa chỉ"
   restaurant_info: "Thông tin nhà hàng"
-  restaurant_addr: "Địa chỉ"
+  restaurant_address: "Địa chỉ"
   order_details: Chi tiết đơn hàng
   views:
     pagination:
@@ -193,3 +191,10 @@ vi:
   not_found: "Không tìm thấy kết quả nào phù hợp"
   image_updated: "Ảnh đã được cập nhật"
   update_image_fail: "Cập nhật ảnh không thành công"
+  not_exits: "Không tôn tại"
+  update_info: "Cập nhật thông tin"
+  manage_restaurants: "Quản lý nhà hàng"
+  new_restaurant: "Nhà hàng mới"
+  create_restaurant: "Tạo nhà hàng"
+  restaurant_create_fail: "Restaurant create fail!"
+  restaurant_líst: "Danh sách nhà hàng"
