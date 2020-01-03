@@ -1,0 +1,31 @@
+<div class="newpass-container">
+  <div class="content">
+    <h1 class="h3 text-center mb-2">
+      <%= t "forgot_password" %>
+    </h1>
+    <p class="text-center mb-4">
+      <span class="text-gray-500">
+        <%= t "enter_email" %>
+      </span>
+    </p>
+    <%= form_for resource, as: resource_name, url: password_path(resource_name),
+      html: {method: :post} do |f| %>
+      <%= devise_error_messages! %>
+      <div class="row">
+        <div class="col-md-6 mlr-auto">
+          <div class="form-group mb-4">
+            <%= f.label t "email" do %>
+              <%= t "email" %>
+              <span class="form-required">*</span>
+            <% end %>
+            <%= f.email_field :email, class: "form-control required",
+              required: true, placeholder: t("email") %>
+          </div>
+          <button class="btn sm-login btn-block">
+            <%= t "reset_password" %>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

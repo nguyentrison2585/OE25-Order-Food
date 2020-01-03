@@ -6,13 +6,20 @@ Rails.application.routes.draw do
     get "/contact", to: "static_pages#contact"
     get "/term", to: "static_pages#term"
     get "/security", to: "static_pages#security"
-    get "/signup", to: "users#new"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
     get "/order_details", to: "order_details#index"
 
-    resources :users
+    as :user do
+      get "signup", to: "users/registrations#new"
+      get "signin", to: "devise/sessions#new"
+      post "signin", to: "devise/sessions#create"
+      delete "signout", to: "devise/sessions#destroy"
+      get "profile", to: "devise/registrations#edit"
+      put "profile", to: "devise/registrations#update"
+    end
+
+    devise_for :users, controllers: {registrations: "users/registrations"}
+
+    resources :users, only: [:show, :edit, :update]
     resources :restaurants do
       member do
         get :orders
