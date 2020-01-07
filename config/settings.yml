@@ -30,3 +30,4 @@ factories:
     dish_price_fake: 1000000
   orders:
     status: "pending"
+default_avatar_path: ["app", "assets", "images", "default_avatar.png"]

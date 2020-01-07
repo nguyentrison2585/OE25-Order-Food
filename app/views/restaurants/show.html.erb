@@ -18,8 +18,8 @@
         </ol>
       </nav>
       <div class="kind-restaurant"><%= t "restaurant_kind" %></div>
-      <div class="name-restaurant"><%= t "restaurant_name" %></div>
-      <div class="address-restaurant"><%= t "restaurant_address" %></div>
+      <div class="name-restaurant"><%= @restaurant.name %></div>
+      <div class="address-restaurant"><%= @restaurant.address %></div>
       <div class="rating">
         <div class="stars">
           <span class="full"><i class="fas fa-star"></i></span>
@@ -35,9 +35,6 @@
         <div class="opentime-status">
           <span class="stt offline" title="<%= t "restaurant_status"%>"></span>
         </div>
-      </div>
-      <div class="cost-restaurant">
-        <i class="fas fa-dollar-sign"></i><%= t "price_range" %>
       </div>
       <div class="share-social clearfix">
         <div class="share-social-box">

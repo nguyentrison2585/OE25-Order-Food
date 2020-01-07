@@ -35,6 +35,8 @@ en:
   log_in: Log in
   name: Name
   email: Email
+  current_password: "Current password"
+  new_password: "New password"
   password: Password
   password_confirm: "Confirm password"
   password_confirmation: Password Confirmation
@@ -177,3 +179,14 @@ en:
   invalid_errors: is invalid
   blank_error: "can't be blank"
   not_a_number_error: "is not a number"
+  remember_me: "Remember me"
+  forgot_password: "Forgot password"
+  forgot_password?: "Forgot password?"
+  dont_have_account: "You don't have account?"
+  reset_password: "Reset password"
+  enter_email: "Enter your email to get a link help you reset password"
+  or: "Or"
+  haved_account: "Haved account?"
+  not_found: "Don't found any result"
+  image_updated: "Image updated"
+  update_image_fail: "Update image fail"
