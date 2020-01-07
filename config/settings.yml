@@ -16,9 +16,13 @@ dish_price_step: 1000
 default_password: "888888"
 factories:
   users:
-    role_fake: 1
+    role_fake_boss: 1
+    role_fake_guest: 2
+    role_fake_admin: 0 
     name_max_length_invalid: 51
     password_min_length_invalid: 5
+    fake_email: "defender98@gmail.com"
+    fake_password: "9999999"
   restaurants:
     open_time_fake: "8:00 - 22:00"
     discount_fake: 10

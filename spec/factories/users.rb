@@ -4,7 +4,7 @@ FactoryBot.define do
     email {Faker::Internet.email}
     password {Settings.default_password}
     password_confirmation {Settings.default_password}
-    role {Settings.factories.users.role_fake}
+    role {Settings.factories.users.role_fake_boss}
     phone_number {Faker::PhoneNumber.cell_phone}
     after(:build) do |user|
       user.image.attach(io: File.open(Rails.root.
