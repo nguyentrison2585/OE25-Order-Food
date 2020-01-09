@@ -1,0 +1,6 @@
+$('#dish-modal form').attr('action', '<%= dishes_url(@dish) %>');
+$('#modal-dish-title').html('<%= t "create_dish" %>');
+$('#modal-submit-btn').html('<%= t "create" %>');
+$('#modal-submit-btn').removeClass();
+$('#modal-submit-btn').addClass('create-dish-btn btn');
+$('#dish-modal').modal('show');

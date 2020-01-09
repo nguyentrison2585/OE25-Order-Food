@@ -40,8 +40,8 @@
         </div>
       </div>
     <% end %>
-    <%= link_to "", title: t("combos_list"), target: "_self" do %>
-      <div class="sub-item-navigation">
+    <%= link_to combos_path(res_id: restaurant.id), title: t("combos_list"), target: "_self" do %>
+      <div class="sub-item-navigation <%= active_combos_list restaurant %>">
         <div class="row">
           <div class="col-auto">
             <i class="fas fa-hamburger"></i>

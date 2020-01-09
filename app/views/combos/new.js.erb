@@ -1,0 +1,51 @@
+$('#combo-modal form').attr('action', '<%= combos_url(@combo) %>');
+$('input[name="_method"]').val('post');
+$('#modal-combo-title').html('<%= t "create_combo" %>');
+$('#modal-submit-btn').html('<%= t "create" %>');
+$('#modal-submit-btn').removeClass();
+$('#modal-submit-btn').addClass('create-combo-btn btn');
+$('#combo_name').val('');
+$('#combo_price').val('');
+$('#combo_description').val('');
+$('#load_combo_image').attr('src', '');
+$('#combo-modal').modal('show');
+
+var comboDishes = $('#dishes-group').find('.dishes-table-item');
+var dishes = $('#dishes-list').find('.dishes-table-item');
+
+for (let i = 0;i < comboDishes.length;i++) {
+  delDishFromCb($(comboDishes[i]).find('.del-dish-from-cb')[0]);
+}
+
+for (let i = 0;i < dishes.length; i++) {
+  $(dishes[i]).off();
+  $(dishes[i]).on('click', function() {addDishToCombo(this);});
+}
+
+$($('.create-combo-btn')[0]).off();
+
+$('.create-combo-btn')[0].addEventListener('click', function(e) {
+  e.preventDefault();
+  createCombo();
+});
+
+function createCombo() {
+  var formData = new FormData($('form#combo-form')[0]);
+  var comboDishes = $('#dishes-group').find('.dishes-table-item');
+  var dishesLength = comboDishes.length;
+
+  for(let i = 0; i < dishesLength; i++){
+    let dishId = comboDishes[i].dataset.id;
+    let count = $($(comboDishes[i]).find('.dishes-table-col4')[0]).find(':input')[0].value;
+    formData.append('combo[combo_details_attributes][' + i + '][dish_id]', dishId);
+    formData.append('combo[combo_details_attributes][' + i + '][count]', count);
+  }
+
+  $.ajax({
+    type: "POST",
+    url: "/combos",
+    data: formData,
+    processData: false,
+    contentType: false,
+  });
+}

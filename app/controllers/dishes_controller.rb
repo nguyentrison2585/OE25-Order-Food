@@ -1,10 +1,21 @@
 class DishesController < ApplicationController
-  before_action :load_restaurant, only: %i(index update)
+  before_action :load_restaurant, only: %i(new create index update)
   before_action :load_dish, only: %i(edit update)
 
   def index
     @q = Restaurant.ransack(params[:q])
     @dishes = @restaurant.dishes.page(params[:page]).per Settings.dish_per_page
+  end
+
+  def new
+    @dish = @restaurant.dishes.build
+    respond_to :js
+  end
+
+  def create
+    @dish = @restaurant.dishes.build dish_params
+    attach_image
+    save_dish
   end
 
   def edit
@@ -33,6 +44,16 @@ class DishesController < ApplicationController
 
     flash[:danger] = t "not_exist"
     redirect_to root_url
+  end
+
+  def save_dish
+    if @dish.save
+      flash[:success] = t "dish_created"
+      redirect_to dishes_url(res_id: @restaurant.id)
+    else
+      flash[:danger] = t "dish_create_fail"
+      redirect_to root_url
+    end
   end
 
   def attach_image

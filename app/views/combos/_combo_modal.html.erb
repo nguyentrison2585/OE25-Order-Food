@@ -1,0 +1,105 @@
+<div class="modal" id="combo-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-create-combo">
+      <div class="modal-header">
+        <span class ="close" data-dismiss="modal">
+          <%= image_tag "delete.svg", alt:"delete" %>
+        </span>
+        <div id="modal-combo-title">
+        </div>
+      </div>
+      <%= form_tag "", id: "combo-form", method: :post, class: "form-horizontal",
+        multipart: true do %>
+        <input type="hidden" name="_method">
+        <input type="hidden" name="res_id" value="<%= @restaurant.id %>">
+        <div class="modal-body">
+          <div class="combo-info">
+            <div class="form-group dish-row">
+              <div class="col-4 col-form-label">
+                <%= label_tag "combo_name", t("combo_name") %>
+              </div>
+              <div class="col-8">
+                <%= text_field_tag "combo[name]", nil, class: "form-control",
+                  required: true %>
+              </div>
+            </div>
+            <div class="form-group dish-row">
+              <div class="col-4 col-form-label">
+                <%= label_tag "combo_price", t("price") %>
+              </div>
+              <div class="col-8">
+                <%= number_field_tag "combo[price]", nil, class: "form-control",
+                  min: Settings.min_price, step: Settings.price_step,
+                  required: true %>
+              </div>
+            </div>
+            <div class="form-group dish-row">
+              <div class="col-4 col-form-label">
+                <%= label_tag "combo_description", t("description") %>
+              </div>
+              <div class="col-8">
+                <%= text_field_tag "combo[description]", nil,
+                  class: "form-control", required: true %>
+              </div>
+            </div>
+            <div class="form-group dish-row">
+              <div class="col-4 col-form-label">
+                <%= label_tag "combo_image", t("image") %>
+              </div>
+              <div class="col-4">
+                <%= image_tag "", id:"load_combo_image" %>
+              </div>
+              <div class="col-4">
+                <div class="dish-file-image">
+                  <%= file_field :combo, :image, hidden: "true",
+                    accept: Settings.valid_image_types.join(",") %>
+                  <%= label :combo, :image, class: "label-dish" do %>
+                    <%= t "pick" %>
+                  <% end %>
+                  <span class="font-italic font13">
+                    <%= t "accept_image" %>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="combo-detail">
+            <div class="combo-detail-title">
+              <%= t "combo_detail" %>
+              <div class="add-dish-to-cb">
+                  <button type="button" class="add-dish-to-cb-btn",
+                    data-toggle="modal" data-target="#dishes-list-modal">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+            </div>
+            <div class="dishes-group", id="dishes-group">
+              <div class="dishes-table-row dishes-table-heading">
+                <div class="dishes-table-cell dishes-table-col1">
+                  <%= t "dish_name" %>
+                </div>
+                <div class="dishes-table-cell dishes-table-col2">
+                  <%= t "image" %>
+                </div>
+                <div class="dishes-table-cell dishes-table-col3">
+                  <%= t "price" %>
+                </div>
+                <div class="dishes-table-cell dishes-table-col4">
+                  <%= t "count" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+           <button type="button" class="btn close-modal-btn"
+            data-dismiss="modal">
+            <%= t "close" %>
+          </button>
+          <button type="submit", id="modal-submit-btn">
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

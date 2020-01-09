@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_03_013326) do
+ActiveRecord::Schema.define(version: 2020_01_13_032240) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_013326) do
     t.bigint "combo_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "count"
     t.index ["combo_id"], name: "index_combo_details_on_combo_id"
     t.index ["dish_id"], name: "index_combo_details_on_dish_id"
   end
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_013326) do
     t.bigint "restaurant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price"
     t.index ["restaurant_id"], name: "index_combos_on_restaurant_id"
   end
 

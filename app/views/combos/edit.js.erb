@@ -1,0 +1,100 @@
+$('#combo-modal form').attr('action', '<%= combo_url(@combo) %>');
+$('input[name="_method"]').val('patch');
+$('#combo_name').val('<%= @combo.name %>');
+$('#combo_price').val('<%= @combo.price %>');
+$('#combo_description').val('<%= @combo.description %>');
+$('#load_combo_image').attr('src', '<%= url_for(@combo.image) %>');
+$('#modal-combo-title').html('<%= t "update_combo" %>');
+$('#modal-submit-btn').html('<%= t "update" %>');
+$('#modal-submit-btn').removeClass();
+$('#modal-submit-btn').addClass('update-combo-btn btn');
+var comboDishes = $('#dishes-group').find('.dishes-table-item');
+var dishes = $('#dishes-list').find('.dishes-table-item');
+
+for (let i = 0;i < comboDishes.length;i++) {
+  delDishFromCb($(comboDishes[i]).find('.del-dish-from-cb')[0]);
+}
+
+for (let i = 0;i < dishes.length; i++) {
+  $(dishes[i]).off();
+  $(dishes[i]).on('click', function() {addDishToCombo(this);});
+}
+
+var dishes = $('#dishes-list').find('.dishes-table-item');
+<% @combo.dishes.each_with_index do |dish, i| %>
+  var dishId = '<%= dish.id %>';
+  var dishName = '<%= dish.name %>';
+  var dishPrice = '<%= dish.price %>';
+  var dishImageSrc = '<%= url_for(dish.image) %>';
+  var count = '<%= @combo.combo_details[i].count %>';
+  var dishRow = `<div class='dishes-table-row dishes-table-item' data-id='\
+    ${dishId}\
+    '>
+    <div class='dishes-table-cell dishes-table-col1'>\
+    ${dishName}\
+    </div>
+    <div class='dishes-table-cell dishes-table-col2'>
+    <img src='\
+    ${dishImageSrc}\
+    '>
+    </div>
+    <div class='dishes-table-cell dishes-table-col3'>\
+    ${dishPrice}\
+    </div>
+    <div class='dishes-table-cell dishes-table-col4'>
+    <input type='number', min='0', step='1', value=\
+    ${count}\
+    , required='true'/>
+    </div>
+    <div class='dishes-table-cell dishes-table-col5'>
+    <button type = "button" class="del-dish-from-cb">
+    <i class="fas fa-times"></i>
+    </button>
+    </div>
+    </div>`;
+  $('#dishes-group').append(dishRow);
+  for (let i = 0;i < dishes.length;i++) {
+    if (dishes[i].dataset.id == <%= dish.id %>) {
+      $(dishes[i]).remove();
+      break;
+    }
+  }
+<% end %>
+
+var deleteBtns = $('.del-dish-from-cb');
+
+for (let i = 0;i < deleteBtns.length; i++) {
+  $(deleteBtns[i]).on('click', function() {delDishFromCb(this);});
+}
+
+$('#combo-modal').modal('show');
+
+var old_btn = $('.update-combo-btn')[0]
+var new_btn = old_btn.cloneNode(true);
+old_btn.parentNode.replaceChild(new_btn, old_btn);
+
+$($('.update-combo-btn')[0]).on('click', function(e) {
+  e.preventDefault();
+  updateCombo();
+});
+
+function updateCombo() {
+  var formData = new FormData($('form#combo-form')[0]);
+  var comboDishes = $('#dishes-group').find('.dishes-table-item');
+  var dishesLength = comboDishes.length;
+
+  for (let i = 0; i < dishesLength; i++){
+    let dishId = comboDishes[i].dataset.id;
+    let count = $($(comboDishes[i]).find('.dishes-table-col4')[0]).find(':input')[0].value;
+    formData.append('combo[combo_details_attributes][' + i + '][dish_id]', dishId);
+    formData.append('combo[combo_details_attributes][' + i + '][count]', count);
+  }
+
+  $.ajax({
+    type: "POST",
+    url: "/combos/" + "<%= @combo.id %>",
+    data: formData,
+    processData: false,
+    contentType: false,
+  });
+}

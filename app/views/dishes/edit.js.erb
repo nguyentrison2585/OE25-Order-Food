@@ -1,6 +1,11 @@
-$('#my-modal form').attr('action', '<%= dish_url(@dish) %>');
+$('#dish-modal form').attr('action', '<%= dish_url(@dish) %>');
+$('input[name="_method"]').val('patch');
 $('#dish_name').val('<%= @dish.name %>');
 $('#dish_price').val('<%= @dish.price %>');
 $('#dish_description').val('<%= @dish.description %>');
 $('#load_dish_image').attr('src', '<%= url_for(@dish.image) %>');
-$('#my-modal').modal('show');
+$('#modal-dish-title').html('<%= t "update_dish" %>');
+$('#modal-submit-btn').html('<%= t "update" %>');
+$('#modal-submit-btn').removeClass();
+$('#modal-submit-btn').addClass('update-dish-btn btn');
+$('#dish-modal').modal('show');

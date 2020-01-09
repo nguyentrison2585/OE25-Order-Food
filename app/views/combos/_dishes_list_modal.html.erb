@@ -1,0 +1,51 @@
+<div class="modal" id="dishes-list-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-dishes-list">
+      <div class="modal-header">
+        <span class ="close" data-dismiss="modal">
+          <%= image_tag "delete.svg", alt:"delete" %>
+        </span>
+        <div id="modal-dishes-title">
+          <%= t "dish_list" %>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="dishes-list">
+          <div class="dishes-group", id="dishes-list">
+            <div class="dishes-table-row dishes-table-heading">
+              <div class="dishes-table-cell dishes-table-col1">
+                <%= t "dish_name" %>
+              </div>
+              <div class="dishes-table-cell dishes-table-col2">
+                <%= t "image" %>
+              </div>
+              <div class="dishes-table-cell dishes-table-col3">
+                <%= t "price" %>
+              </div>
+            </div>
+            <% @dishes.each_with_index do |dish, n| %>
+              <div class="dishes-table-row dishes-table-item"
+                data-id="<%= dish.id %>">
+                <div class="dishes-table-cell dishes-table-col1">
+                  <%= dish.name %>
+                </div>
+                <div class="dishes-table-cell dishes-table-col2">
+                  <%= image_tag dish.image %>
+                </div>
+                <div class="dishes-table-cell dishes-table-col3">
+                  <%= dish.price %> đ
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn close-modal-btn"
+          data-dismiss="modal">
+          <%= t "close" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

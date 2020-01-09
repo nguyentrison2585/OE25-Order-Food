@@ -345,6 +345,7 @@ a {
 
 .btn-search {
   display: inline-block;
+  color: $white;
   background-color: $blue;
 }
 
@@ -929,7 +930,7 @@ button, input, optgroup, select, textarea {
   }
 }
 
-.create-restaurant {
+.create-restaurant, .create-dish, .create-combo {
   text-align: center;
   padding: 20px;
   .new-res-btn {
@@ -942,6 +943,12 @@ button, input, optgroup, select, textarea {
       background-color: $green-dark;
     }
   }
+}
+
+.create-dish, .create-combo {
+  display: inline;
+  float: right;
+  padding: 0;
 }
 
 .create-res-btn {
@@ -1032,40 +1039,6 @@ button, input, optgroup, select, textarea {
     background-color: $gray-medium-light;
   }
 
-  .dishes-table {
-    font-size: 15px;
-    margin: 30px 13px 20px;
-    text-align: center;
-  }
-
-  .dishes-table-row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    border-bottom: 1px solid $gray-medium-lighter;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-
-  .dishes-table-row:last-child {
-    border-bottom: none;
-  }
-
-  .dishes-table-heading {
-    color: $blue;
-  }
-
-  .dishes-table-cell {
-    -ms-flex: 1 1;
-    flex: 1 1;
-    min-height: 0;
-    min-width: 0;
-    width: auto;
-    position: relative;
-    padding: 8px 5px;
-  }
-
   .dishes-table-col1 {
     width: 5%;
     -ms-flex: 0 0 auto;
@@ -1134,7 +1107,41 @@ button, input, optgroup, select, textarea {
   }
 }
 
-#load_dish_image {
+.dishes-table {
+  font-size: 15px;
+  margin: 30px 13px 20px;
+  text-align: center;
+}
+
+.dishes-table-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  border-bottom: 1px solid $gray-medium-lighter;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.dishes-table-row:last-child {
+  border-bottom: none;
+}
+
+.dishes-table-heading {
+  color: $blue;
+}
+
+.dishes-table-cell {
+  -ms-flex: 1 1;
+  flex: 1 1;
+  min-height: 0;
+  min-width: 0;
+  width: auto;
+  position: relative;
+  padding: 8px 5px;
+}
+
+#load_dish_image, #load_combo_image {
   width: 120px;
   height: 120px;
 }
@@ -2431,6 +2438,109 @@ aside {
   margin-top: 30px;
 }
 
+.modal-create-combo .modal-body {
+  display: flex;
+}
+
+.combo-info {
+  width: 400px;
+}
+
+.combo-detail {
+  width: 500px;
+
+  .combo-detail-title {
+    font-size: 16px;
+  }
+}
+
+.dishes-list {
+  width: 100%;
+}
+
+.add-dish-to-cb{
+  display: inline;
+
+  .fas {
+    color: $blue;
+    font-size: 16px;
+
+    &:hover {
+      color: $blue-light;
+    }
+  }
+}
+
+.add-dish-to-cb-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.dishes-group {
+  text-align: center;
+  margin-top: 10px;
+  padding: 0 10px;
+  height: 270px;
+  overflow-y: scroll;
+
+  .dishes-table-heading {
+    text-align: center;
+  }
+
+  .dishes-table-col1 {
+    width: 35%;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .dishes-table-col2 {
+    width: 15%;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .dishes-table-col3 {
+    width: 25%;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .dishes-table-col4 {
+    width: 15%;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .dishes-table-col5 {
+    width: 10%;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+}
+
+.combo-detail-title {
+  color: $red;
+}
+
+.del-dish-from-cb {
+  cursor: pointer;
+  background: $white;
+  border: none;
+
+  .fas {
+    color: $red;
+
+    &:hover {
+    color: $red-light;
+  }
+  }
+}
+
 .modal-dialog {
   position: relative;
   width: auto;
@@ -2524,14 +2634,26 @@ aside {
   font-size: 14px;
 }
 
-.modal-content.modal-order-detail {
-  width: 600px;
-}
+.modal-content {
+  &.modal-order-detail, &.modal-create-dish{
+    width: 600px;
+  }
 
-.modal-content.modal-create-restaurant {
-  width: 700px;
-}
+  &.modal-create-restaurant {
+    width: 700px;
+  }
 
+  &.modal-create-combo {
+    width: 900px;
+  }
+
+  &.modal-dishes-list {
+    width: 600px;
+  }
+}
+.modal-body:after {
+
+}
 .label-dish {
   color: $black;
   font-size: 14px;
@@ -2545,7 +2667,8 @@ aside {
 }
 
 
-.modal-order-detail, .modal-create-restaurant {
+.modal-order-detail, .modal-create-restaurant, .modal-create-dish,
+.modal-create-combo, .modal-dishes-list {
   .modal-header {
     font-size: 16px;
     font-weight: 700;
@@ -2555,6 +2678,60 @@ aside {
     position: relative;
     border: 0;
     border-radius: 5px 5px 0 0;
+  }
+}
+
+.modal-dishes-list {
+  .modal-body {
+    margin-top: 0;
+
+    .dishes-group {
+      margin-top: 0;
+      padding-right: 30px;
+
+      .dishes-table-item {
+        cursor: pointer;
+
+        &:hover {
+          background-color: $gray-light;
+        }
+      }
+
+      .dishes-table-col1 {
+        width: 33.33333%;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+      }
+
+      .dishes-table-col2 {
+        width: 33.33333%;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+      }
+
+      .dishes-table-col3 {
+        width: 33.33333%;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+
+  .modal-footer {
+    text-align: center;
+
+    .close-modal-btn {
+      float: none;
+
+      &:hover {
+        background-color: $gray;
+      }
+    }
   }
 }
 
@@ -2587,13 +2764,28 @@ aside {
   color: $gray-dark;
   background-color: $white;
   border-color: $gray-medium-light;
+
+  &:hover {
+    background-color: $gray;
+  }
 }
 
-.update-dish-btn {
+.update-dish-btn, .update-combo-btn {
   float: right;
   color: $white;
   background-color: $blue-light;
   border-color: $blue-light;
+}
+
+.create-dish-btn, .create-combo-btn{
+  float: right;
+  color: $white;
+  background-color: $green;
+  border-color: $green-dark;
+
+  &:hover {
+    background-color: $green-dark;
+  }
 }
 
 .icon-arrow-thin {

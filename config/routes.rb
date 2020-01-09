@@ -27,5 +27,6 @@ Rails.application.routes.draw do
     end
     resources :orders, except: %i(edit destroy)
     resources :dishes
+    resources :combos
   end
 end

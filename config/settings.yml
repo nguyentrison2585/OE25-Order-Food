@@ -11,14 +11,15 @@ valid_image_types: ["image/jpeg", "image/gif", "image/png"]
 order_page: 5
 time_format: "%H:%M  %d/%m/%Y "
 dish_per_page: 10
-min_dish_price: 5000
-dish_price_step: 1000
+combo_per_page: 10
+min_price: 5000
+price_step: 1000
 default_password: "888888"
 factories:
   users:
     role_fake_boss: 1
     role_fake_guest: 2
-    role_fake_admin: 0 
+    role_fake_admin: 0
     name_max_length_invalid: 51
     password_min_length_invalid: 5
     fake_email: "defender98@gmail.com"

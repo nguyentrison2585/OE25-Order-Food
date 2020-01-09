@@ -1,0 +1,76 @@
+<div class="modal" id="dish-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-create-dish">
+      <div class="modal-header">
+        <span class ="close" data-dismiss="modal">
+          <%= image_tag "delete.svg", alt:"delete" %>
+        </span>
+        <div id="modal-dish-title">
+        </div>
+      </div>
+      <%= form_tag "", method: :post, class: "form-horizontal",
+        multipart: true do %>
+        <input type="hidden" name="_method">
+        <input type="hidden" name="res_id" value="<%= @restaurant.id %>">
+        <div class="modal-body">
+          <div class="form-group dish-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "dish_name", t("dish_name") %>
+            </div>
+            <div class="col-8">
+              <%= text_field_tag "dish[name]", nil, class: "form-control",
+                required: true %>
+            </div>
+          </div>
+          <div class="form-group dish-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "price", t("price") %>
+            </div>
+            <div class="col-8">
+              <%= number_field_tag "dish[price]", nil, class: "form-control",
+                min: Settings.min_price, step: Settings.price_step,
+                required: true %>
+            </div>
+          </div>
+          <div class="form-group dish-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "description", t("description") %>
+            </div>
+            <div class="col-8">
+              <%= text_field_tag "dish[description]", nil,
+                class: "form-control", required: true %>
+            </div>
+          </div>
+          <div class="form-group dish-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "dish_image", t("image") %>
+            </div>
+            <div class="col-3">
+              <%= image_tag "", id:"load_dish_image" %>
+            </div>
+            <div class="col-4">
+              <div class="dish-file-image">
+                <%= file_field :dish, :image, hidden: "true",
+                  accept: Settings.valid_image_types.join(",") %>
+                <%= label :dish, :image, class: "label-dish" do %>
+                  <%= t "pick" %>
+                <% end %>
+                <span class="font-italic font13">
+                  <%= t "accept_image" %>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+           <button type="button" class="btn close-modal-btn"
+            data-dismiss="modal">
+            <%= t "close" %>
+          </button>
+          <button type="submit" id="modal-submit-btn">
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
