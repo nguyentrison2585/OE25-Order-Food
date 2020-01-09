@@ -1,4 +1,4 @@
-<div class="now-navigation-profile">
+<div class="now-navigation-profile user-nav">
   <div class="header-profile">
     <div class="row align-items-center">
       <div class="col-auto">
@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="navigation-profile">
-    <%= link_to profile_path, class: "item-navigation", target: "_self",
+    <%= link_to profile_path, class: "item-navigation active", target: "_self",
       title: t("update_profile") do %>
       <div class="row">
         <div class="col-auto">
@@ -21,7 +21,5 @@
         </div>
       </div>
     <% end %>
-    <%= render partial: "shared/nav_item", collection: current_user.restaurants,
-      as: "restaurant" %>
   </div>
 </div>

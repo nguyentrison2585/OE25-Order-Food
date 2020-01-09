@@ -1,0 +1,102 @@
+<div class="left">
+  <div class="now-navigation-profile">
+    <div class="header-profile">
+      <div class="row align-items-center">
+        <div class="col txt-bold font15"><%= t "restaurant_list" %></div>
+      </div>
+    </div>
+    <div class="navigation-profile">
+      <%= render partial: "shared/nav_item",
+        collection: current_user.restaurants, as: "restaurant" %>
+    </div>
+  </div>
+  <div class="create-restaurant">
+    <%= link_to new_restaurant_path, remote: true do %>
+      <button class="btn btn-primary new-res-btn">
+        <i class="fas fa-plus"></i>
+        <%= t "new_restaurant" %>
+      </button>
+    <% end %>
+  </div>
+</div>
+<div class="modal" id="new-res-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-create-restaurant">
+      <div class="modal-header">
+        <span class ="close" data-dismiss="modal">
+          <%= image_tag "delete.svg", alt:"delete" %>
+        </span>
+        <%= t "new_restaurant" %>
+      </div>
+      <%= form_tag "", method: :post, class: "form-horizontal",
+        multipart: true do %>
+        <div class="modal-body">
+          <div class="form-group restaurant-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "restaurant_name", t("restaurant_name") %>
+            </div>
+            <div class="col-8">
+              <%= text_field_tag "new_restaurant[name]", nil, class: "form-control", required: true %>
+            </div>
+          </div>
+          <div class="form-group restaurant-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "restaurant_address", t("restaurant_address") %>
+            </div>
+            <div class="col-8">
+              <%= text_field_tag "new_restaurant[address]", nil, class: "form-control", required: true %>
+            </div>
+          </div>
+          <div class="form-group restaurant-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "restaurant_phone", t("phone_number") %>
+            </div>
+            <div class="col-8">
+              <%= text_field_tag "new_restaurant[phone_number]", nil,
+                class: "form-control", required: true %>
+            </div>
+          </div>
+          <div class="form-group restaurant-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "open_time", t("open_time") %>
+            </div>
+            <div class="col-8">
+              <%= text_field_tag "new_restaurant[open_time]", nil,
+                class: "form-control", required: true %>
+            </div>
+          </div>
+          <div class="form-group restaurant-row">
+            <div class="col-2 col-form-label">
+              <%= label_tag "restaurant_image", t("image_dish") %>
+            </div>
+            <div class="col-8">
+              <%= image_tag "", id:"load_create_res_image" %>
+            </div>
+            <div class="col-2">
+              <div class="dish-file-image">
+                <%= file_field :new_restaurant, :image, hidden: "true",
+                  accept: Settings.valid_image_types.join(",") %>
+                <%= label :new_restaurant, :image, class: "label-dish" do %>
+                  <%= t "pick" %>
+                <% end %>
+                <span class="font-italic font13">
+                  <%= t "accept_image" %>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+           <button type="button" class="btn close-modal-btn"
+            data-dismiss="modal">
+            <%= t "close" %>
+          </button>
+          <button type="submit" class="btn create-res-btn"
+            id="create-restaurant">
+            <%= t "create_restaurant" %>
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

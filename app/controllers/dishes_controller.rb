@@ -13,9 +13,9 @@ class DishesController < ApplicationController
   def update
     if @dish.update dish_params
       attach_image
-      flash[:success] = t "user_updated"
+      flash[:success] = t "dish_updated"
     else
-      flash[:danger] = t "user_update_fail"
+      flash[:danger] = t "dish_update_fail"
     end
     redirect_to dishes_url(res_id: @restaurant.id)
   end
@@ -30,7 +30,7 @@ class DishesController < ApplicationController
     @dish = Dish.find_by id: params[:id]
     return if @dish
 
-    flash[:danger] = t "no_exist"
+    flash[:danger] = t "not_exist"
     redirect_to root_url
   end
 
@@ -44,7 +44,7 @@ class DishesController < ApplicationController
     @restaurant = Restaurant.find_by id: params[:res_id]
     return if @restaurant
 
-    flash[:danger] = t "no_exist"
+    flash[:danger] = t "not_exist"
     redirect_to root_url
   end
 end

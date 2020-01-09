@@ -14,7 +14,7 @@
         </div>
         <div class="user-acc col-auto">
           <% if user_signed_in? %>
-            <div class="dropdown" id="dropdiv">
+            <div class="dropdown">
               <div class="dropdown-toggle" role="button" id="user-dropdown"
                 data-toggle="dropdown">
                 <div class="img">
@@ -39,6 +39,15 @@
                       <%= t "update_account" %>
                     </span>
                   </div>
+                <% end %>
+                <% if current_user.boss? %>
+                  <%= link_to edit_restaurant_path(current_user.restaurants.first), target: "_self" do %>
+                    <div class="dropdown-item">
+                      <span class="text">
+                        <%= t "manage_restaurants" %>
+                      </span>
+                    </div>
+                  <% end %>
                 <% end %>
                 <%= link_to signout_path, target: "_self", method: :delete do %>
                   <div class="dropdown-item">

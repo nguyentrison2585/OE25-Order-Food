@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :load_user, only: %i(show update)
   before_action :require_logged_in, only: %i(update show)
-  
+
   def show; end
 
   def update
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if result
       flash[:success] = t "image_updated"
     else
-      flash[:success] = t "update image_fail"
+      flash[:danger] = t "update image_fail"
     end
     redirect_to profile_path
   end
