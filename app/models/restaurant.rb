@@ -14,8 +14,4 @@ class Restaurant < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true
   validates :open_time, presence: true
-
-  scope :search, (lambda do |search_key|
-    where("name LIKE ? or address LIKE ?", "%#{search_key}%", "%#{search_key}%")
-  end)
 end

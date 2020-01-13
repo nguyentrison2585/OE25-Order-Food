@@ -1,11 +1,12 @@
 class OrdersController < ApplicationController
   before_action :require_logged_in
-  before_action :load_order, only: :update
-  before_action :is_boss?, only: :show
+  before_action :load_restaurant, :load_order, only: :update
+  before_action :is_boss?, only: %i(load_order load_restaurant)
 
   def index
-    @orders = current_user.orders.by_created_at
-                          .page(params[:page]).per Settings.order_page
+    @order = current_user.orders.search params[:q]
+    @orders = @order.result(distinct: true)
+                    .page(params[:page]).per Settings.order_page
   end
 
   def new
@@ -40,7 +41,11 @@ class OrdersController < ApplicationController
   end
 
   def load_order
-    @order = current_user.orders.find_by id: params[:id]
+    @order = if is_boss?
+               @restaurant.orders.find_by id: params[:id]
+             else
+               current_user.orders.find_by id: params[:id]
+             end
     return if @order
 
     flash[:danger] = t "not_found_order"
@@ -48,7 +53,9 @@ class OrdersController < ApplicationController
   end
 
   def load_restaurant
-    @restaurant = current_user.restaurants.find_by id: params[:id]
+    return unless is_boss?
+
+    @restaurant = current_user.restaurants.find_by id: params[:res_id]
     return if @restaurant
 
     flash[:danger] = t "not_found_restaurant"
@@ -56,6 +63,9 @@ class OrdersController < ApplicationController
   end
 
   def is_boss?
-    redirect_to(root_url) unless current_user.boss?
+    return true if current_user.boss?
+
+    flash[:warning] = t "you_not_boss"
+    redirect_to root_url
   end
 end

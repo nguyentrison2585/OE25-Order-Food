@@ -198,3 +198,9 @@ vi:
   create_restaurant: "Tạo nhà hàng"
   restaurant_create_fail: "Restaurant create fail!"
   restaurant_líst: "Danh sách nhà hàng"
+  pending: Đang chờ
+  accepted: Đã được chấp nhận
+  no_result: Không có kết quả trả về
+  return_results: Có kết quả trả về
+  you_not_boss: Bạn không phải là chủ cửa hàng
+  all: Tất cả

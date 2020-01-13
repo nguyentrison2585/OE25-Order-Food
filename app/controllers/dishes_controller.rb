@@ -3,6 +3,7 @@ class DishesController < ApplicationController
   before_action :load_dish, only: %i(edit update)
 
   def index
+    @q = Restaurant.ransack(params[:q])
     @dishes = @restaurant.dishes.page(params[:page]).per Settings.dish_per_page
   end
 

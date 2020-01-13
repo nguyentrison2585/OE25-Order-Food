@@ -195,3 +195,9 @@ en:
   new_restaurant: "New restaurant"
   create_restaurant: "Create restaurant"
   restaurant_created: "Restaurant created"
+  pending: Pending
+  accepted: Accepted
+  no_result: No results returned
+  return_results: returned results
+  you_not_boss: You arenot  boss of the restaurant
+  all: All

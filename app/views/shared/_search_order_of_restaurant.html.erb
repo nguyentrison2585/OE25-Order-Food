@@ -1,0 +1,13 @@
+<%= search_form_for @order, url: orders_restaurant_path	 do |f| %>
+  <div class="filter-table">
+    <div class="filter-table-item ">
+      <div class="text-nowrap">
+        <span class="filter-table-label"><%= t "status" %></span>
+        <%= f.select(:status_cont , options_for_select(order_status, selected: select_option_status_order), class: "form-control", include_blank: t("all")) %> 
+        <%= f.button type: "submit", class: "btn btn-sm" do %>
+          <%= t "search" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

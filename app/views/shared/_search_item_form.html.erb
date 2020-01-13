@@ -1,0 +1,10 @@
+<%= search_form_for @q, url: restaurant_path(@restaurant) do |f| %>
+  <div class="search-items">
+    <p class="input-group">
+      <%= f.search_field :name_cont,
+        {class: "form__control has-icon list-restaurant__search",
+          placeholder: t("search")} %>
+      <i class="fas fa-search" type: "submit"></i>
+    </p>
+  </div>
+<% end %>
